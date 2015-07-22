@@ -5,7 +5,7 @@ $(function () {
 
     var form = $('#create_course');
     var courseId = $('.submit').data("id");
-    
+
     form.submit(function (ev) {
         $.ajax({
             type: "POST",
