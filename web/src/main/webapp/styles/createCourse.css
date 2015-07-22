@@ -1,0 +1,36 @@
+h3 {
+    margin: 20px auto;
+    text-align: center;
+    font-size: larger;
+}
+
+.form-group {
+    margin: 30px 560px;
+}
+
+.divider {
+    margin: 20px 500px;
+}
+
+#selector {
+    font-size: larger;
+    width: 100px;
+}
+
+.footer_button {
+    margin: 30px 600px;
+}
+
+button {
+    display: inline-block;
+    height: 35px;
+    width: 60px;
+    border-radius: 4px;
+    border: 1px solid darkgrey;
+    background-color: #ffffff;
+    font-size: small;
+}
+
+button:hover{
+    background-color: #d6d6d6;
+}

@@ -10,33 +10,28 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>添加课程</title>
+  <title>添加课程</title>
 
-  <link href="../lib/css/bootstrap.css" rel="stylesheet"/>
+  <link href="../styles/createCourse.css" rel="stylesheet">
 
   <script src="../lib/js/jquery-1.11.1.min.js"></script>
-  <script src="../lib/js/bootstrap.min.js"></script>
   <script src="../js/createCourse.js"></script>
 </head>
 <body>
   <div class="container">
     <form id="new_course" name="new_schedule">
-      <div class="row">
-        <div class="col-md-offset-4 col-lg-4">
           <h3>添加课程</h3>
-          <hr />
+          <hr class="divider"/>
           <div class="form-group">
-            <label>课程名称:</label>
-            <div>
+            课程名称:
               <label for="courseName">
                 <input type="text" id="courseName" name="courseName">
               </label>
-            </div>
           </div>
 
-          <div class="from-group">
-            <label>教练</label>
-            <select name="coachName">
+          <div class="form-group">
+            <label>教&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;练：</label>
+            <select name="coachName" id="selector">
               <%
                 List<Employee> employeeList = (List<Employee>) request.getAttribute("coaches");
                 for(int i=0; i<employeeList.size(); i++){
@@ -50,12 +45,11 @@
             </select>
 
           </div>
-        </div>
-      </div>
-      <div class="col-md-offset-5">
-        <button type="submit" class="btn btn-default">提交</button>
-        <a type="button" class="btn btn-default" href="/web/courses">返回</a>
-        <button type="reset" class="btn btn-default">清空</button>
+
+      <div class="footer_button">
+        <button type="submit">提交</button>
+        <button type="button" class="return">返回</button>
+        <button type="reset">清空</button>
       </div>
     </form>
   </div>

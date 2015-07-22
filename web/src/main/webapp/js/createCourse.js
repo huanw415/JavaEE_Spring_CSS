@@ -1,5 +1,9 @@
 $(function(){
 
+    $('.return').on('click', function () {
+        $(location).attr('href', '/web/courses');
+    });
+
     var form = $('#new_course');
 
     form.submit(function (ev) {
