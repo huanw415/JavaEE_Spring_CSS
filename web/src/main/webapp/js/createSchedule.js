@@ -23,18 +23,8 @@ $(function(){
     showCustomers();
 
     $('#selector').on('change', function(){
-        hideCustomer();
+        //hideCustomer();
         showCustomers();
-        //$('#title').show();
-        //
-        //var courseName = $("#selector").find("option:selected").data('course');
-        //
-        //if(courseName !== 'private'){
-        //
-        //    $('#noneCustomer').show();
-        //}else{
-        //    $('.customer').show();
-        //}
     });
 
     var form = $('#new_schedule');
