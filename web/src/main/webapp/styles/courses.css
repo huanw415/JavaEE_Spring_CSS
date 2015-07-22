@@ -10,13 +10,17 @@ table{
     margin: 0 auto;
 }
 
-th {
-    text-align: center;
-}
-
 table, th, td {
     border: 1px solid #cdcdcd;
     border-collapse: collapse;
+    width: 800px;
+    height: 40px;
+}
+
+th {
+    text-align: center;
+    height: 50px;
+    background-color: #f4f4f4;
 }
 
 a:link {
