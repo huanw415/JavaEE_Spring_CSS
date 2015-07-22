@@ -24,10 +24,9 @@
   <script src="./js/customers.js"></script>
 </head>
 <body>
+  <%@ include file="navBar.jsp" %>
+
   <div class="container">
-
-    <%@ include file="navBar.jsp" %>
-
     <table class="table table-bordered">
       <caption><h2>顾客信息表</h2></caption>
       <tr>

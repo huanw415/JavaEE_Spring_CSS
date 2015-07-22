@@ -14,10 +14,9 @@
     <script src="./lib/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class="container">
+<%@ include file="navBar.jsp" %>
 
-    <%@ include file="navBar.jsp" %>
-
+    <div class="container">
     <table class="table table-bordered">
         <caption><h2>职员信息表</h2></caption>
         <tr>

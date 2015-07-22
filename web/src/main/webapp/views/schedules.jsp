@@ -21,10 +21,9 @@
 
 </head>
 <body>
+  <%@ include file="navBar.jsp" %>
+
   <div class="container">
-
-    <%@ include file="navBar.jsp" %>
-
     <table class="table table-bordered">
       <caption><h2>课表</h2></caption>
       <tr>

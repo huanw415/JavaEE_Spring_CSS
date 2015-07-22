@@ -20,10 +20,9 @@
   <script src="./lib/js/bootstrap.min.js"></script>
 </head>
 <body>
+<%@ include file="navBar.jsp" %>
+
   <div class="container">
-
-    <%@ include file="navBar.jsp" %>
-
     <table class="table table-bordered">
       <caption><h2>用户信息表</h2></caption>
       <tr>

@@ -22,9 +22,9 @@
   <script src="./js/courses.js"></script>
 </head>
 <body>
-  <div class="container">
+  <%@ include file="navBar.jsp" %>
 
-    <%@ include file="navBar.jsp" %>
+  <div class="container">
 
     <table class="courses_table">
       <caption><h2>课程信息表</h2></caption>

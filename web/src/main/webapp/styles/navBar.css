@@ -2,6 +2,8 @@
     background-color: #f6f6f6;
     border-radius: 10px;
     margin: auto 150px;
+    width: 1084px;
+    height: 60px;
 }
 
 .navigator ul
@@ -23,7 +25,7 @@
 }
 
 #logout {
-    width: 500px;
+    width: 350px;
     text-align: right;
 }
 a {
