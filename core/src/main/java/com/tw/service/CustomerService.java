@@ -58,13 +58,17 @@ public class CustomerService {
         customerDao.createCustomer(customer);
     }
 
-    public void updateCustomer(Customer customer, String customerName) {
-        customerDao.updateCustomer(customer, customerName);
+    public void updateNameCustomer(Customer customer, String customerName) {
+        customerDao.updateNameCustomer(customer, customerName);
     }
 
     public void deleteCustomer(Customer customer) {
         if(customer.getCourses().size() == 0){
             customerDao.deleteCustomer(customer);
         }
+    }
+
+    public void updateCustomer(Customer customer){
+        customerDao.updateCustomer(customer);
     }
 }

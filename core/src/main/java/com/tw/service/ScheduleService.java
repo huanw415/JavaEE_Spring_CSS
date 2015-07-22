@@ -73,7 +73,23 @@ public class ScheduleService {
     }
 
     public void deleteScheduleById(int id) {
+
         Schedule schedule = scheduleDao.getScheduleById(id);
+        Course currentCourse = schedule.getCourse();
+
+        if(currentCourse.getName().equals("private")){
+
+            Customer customer = schedule.getCustomer();
+            List<Course> courses = customer.getCourses();
+
+            for(int i=0; i<courses.size(); i++){
+                if(courses.get(i).getName().equals("private")){
+                    courses.remove(i);
+                }
+            }
+
+            customerService.updateCustomer(customer);
+        }
         scheduleDao.deleteScheduleById(schedule);
     }
 }

@@ -44,7 +44,7 @@ public class CustomersController {
     public ModelAndView updateCustomer(@PathVariable int id,
                                        @RequestParam String customerName){
 
-        customerService.updateCustomer(customerService.getCustomerById(id), customerName);
+        customerService.updateNameCustomer(customerService.getCustomerById(id), customerName);
         return new ModelAndView("redirect:/customers");
     }
 

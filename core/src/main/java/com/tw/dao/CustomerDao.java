@@ -63,7 +63,7 @@ public class CustomerDao {
         session.getTransaction().commit();
     }
 
-    public void updateCustomer(Customer customer, String customerName) {
+    public void updateNameCustomer(Customer customer, String customerName) {
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 
         session.beginTransaction();
@@ -82,6 +82,14 @@ public class CustomerDao {
 
         session.beginTransaction();
         session.delete(customer);
+        session.getTransaction().commit();
+    }
+
+    public void updateCustomer(Customer customer){
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+
+        session.beginTransaction();
+        session.update(customer);
         session.getTransaction().commit();
     }
 }
