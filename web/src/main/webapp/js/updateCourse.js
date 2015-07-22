@@ -1,5 +1,9 @@
 $(function () {
 
+    $('.return').on('click', function () {
+        $(location).attr('href', '/web/courses');
+    });
+
     var previousCoach = $('#dropdown').data('coach');
     $('#dropdown').val(previousCoach);
 

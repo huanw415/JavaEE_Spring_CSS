@@ -50,7 +50,7 @@
 
     <div class="footer_button">
       <button class="submit" type="submit" data-id="<%= ((Course) request.getAttribute("course")).getId() %>">提交</button>
-      <button class="return" href="/web/courses">返回</button>
+      <button class="return" type="button" href="/web/courses">返回</button>
       <button class="reset" type="reset">清空</button>
     </div>
   </form>
