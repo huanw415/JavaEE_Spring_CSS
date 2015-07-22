@@ -6,6 +6,7 @@
 <head>
     <title>用户信息</title>
     <link href="./lib/css/bootstrap.css" rel="stylesheet"/>
+    <link href="./styles/employees.css"rel="stylesheet"/>
 
     <script src="./lib/js/jquery-1.11.1.min.js"></script>
     <script src="./js/user.js"></script>

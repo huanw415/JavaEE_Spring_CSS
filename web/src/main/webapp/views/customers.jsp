@@ -16,6 +16,7 @@
   <title>课程管理</title>
 
   <link href="./lib/css/bootstrap.css" rel="stylesheet"/>
+  <link href="./styles/customers.css" rel="stylesheet">
 
   <script src="./lib/js/jquery-1.11.1.min.js"></script>
   <script src="./lib/js/bootstrap.min.js"></script>
