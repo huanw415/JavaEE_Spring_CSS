@@ -29,8 +29,8 @@
       <caption><h2>课表</h2></caption>
       <tr>
         <th>课程名称</th>
-        <th>时间</th>
         <th>教师</th>
+        <th>时间</th>
         <th>顾客</th>
         <th>修改</th>
         <th>删除</th>
