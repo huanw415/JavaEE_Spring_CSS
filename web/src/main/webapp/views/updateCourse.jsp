@@ -13,7 +13,7 @@
 <head>
   <title>修改课程信息</title>
   <link href="../../styles/updateCourses.css" rel="stylesheet">
-  
+
   <script src="../../lib/js/jquery-1.11.1.min.js"></script>
   <script src="../../js/updateCourse.js"></script>
 </head>

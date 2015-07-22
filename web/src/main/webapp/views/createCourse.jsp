@@ -33,22 +33,23 @@
               </label>
             </div>
           </div>
+
           <div class="from-group">
             <label>教练</label>
-            <%
-              List<Employee> employeeList = (List<Employee>) request.getAttribute("coaches");
-              for(int i=0; i<employeeList.size(); i++){
-            %>
-              <div>
-                <label for="<%= employeeList.get(i).getId()%>">
-                  <input type="radio" id="<%= employeeList.get(i).getId()%>" name="coachName" value="<%= employeeList.get(i).getName()%>"> <%= employeeList.get(i).getName()%>
-                </label>
-              </div>
-            <%
-              }
-            %>
-          </div>
+            <select name="coachName">
+              <%
+                List<Employee> employeeList = (List<Employee>) request.getAttribute("coaches");
+                for(int i=0; i<employeeList.size(); i++){
+              %>
+              <option id="<%= employeeList.get(i).getName()%>" value="<%= employeeList.get(i).getName()%>">
+                <%= employeeList.get(i).getName()%>
+              </option>
+              <%
+                }
+              %>
+            </select>
 
+          </div>
         </div>
       </div>
       <div class="col-md-offset-5">
