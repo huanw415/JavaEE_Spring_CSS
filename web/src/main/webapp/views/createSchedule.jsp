@@ -28,21 +28,24 @@
       <div class="col-md-offset-4 col-lg-4">
         <h3>添加课程表</h3>
         <hr />
-        <div class="form-group">
-          <div><label>课程名称:</label></div>
-          <%
-            List<Course> courses = (List<Course> )request.getAttribute("courses");
-            for(int i=0; i<courses.size(); i++){
-          %>
 
-          <div>
-            <label for="<%= courses.get(i).getName() %>">
-                <input type="radio" id="<%= courses.get(i).getName() %>" name="courseId" value="<%= courses.get(i).getId() %>" data-course="<%= courses.get(i).getName() %>"> <%= courses.get(i).getName() %>&nbsp;&nbsp;<%= courses.get(i).getEmployee().getName() %>
-            </label>
-          </div>
-          <%
-            }
-          %>
+
+        <div class="form-group">
+          课程名称:
+
+          <select name="courseId" id="selector">
+            <%
+              List<Course> courses = (List<Course> )request.getAttribute("courses");
+              for(int i=0; i<courses.size(); i++){
+            %>
+            <option id="<%= courses.get(i).getName() %>" value="<%= courses.get(i).getId() %>"  data-course="<%= courses.get(i).getName() %>">
+              <%= courses.get(i).getName() %>&nbsp;&nbsp;<%= courses.get(i).getEmployee().getName() %>
+            </option>
+            <%
+              }
+            %>
+          </select>
+
         </div>
 
         <div class="form-group" id="customers">

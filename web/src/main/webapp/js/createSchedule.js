@@ -6,16 +6,10 @@ $(function(){
         $('.customer').hide();
     }
 
-    hideCustomer();
-
-    var form = $('#new_schedule');
-
-    $('input:radio[name="courseId"]').on('click', function () {
-
-        hideCustomer();
+    function showCustomers(){
         $('#title').show();
 
-        var courseName = $(this).data('course');
+        var courseName = $("#selector").find("option:selected").data('course');
 
         if(courseName !== 'private'){
 
@@ -23,8 +17,27 @@ $(function(){
         }else{
             $('.customer').show();
         }
+    }
 
+    hideCustomer();
+    showCustomers();
+
+    $('#selector').on('change', function(){
+        hideCustomer();
+        showCustomers();
+        //$('#title').show();
+        //
+        //var courseName = $("#selector").find("option:selected").data('course');
+        //
+        //if(courseName !== 'private'){
+        //
+        //    $('#noneCustomer').show();
+        //}else{
+        //    $('.customer').show();
+        //}
     });
+
+    var form = $('#new_schedule');
 
     form.submit(function (ev) {
         $.ajax({
