@@ -11,6 +11,8 @@
   <title>健身房管理系统</title>
 
   <link href="./lib/css/bootstrap.css" rel="stylesheet"/>
+  <link href="./styles/index.css" rel="stylesheet">
+
   <script src="./lib/js/jquery-1.11.1.min.js"></script>
   <script src="./lib/js/bootstrap.min.js"></script>
 </head>
