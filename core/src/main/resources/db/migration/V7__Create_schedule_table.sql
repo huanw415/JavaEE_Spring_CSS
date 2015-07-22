@@ -1,0 +1,14 @@
+USE users_management;
+
+CREATE TABLE SCHEDULE
+(
+  Id INT AUTO_INCREMENT primary key,
+  Time DATE NOT NUll,
+  CourseId INT,
+  PrivateCustomerId INT,
+  FOREIGN KEY (CourseId) REFERENCES COURSE(Id) ON DELETE CASCADE,
+  FOREIGN KEY (PrivateCustomerId) REFERENCES CUSTOMER(Id) ON DELETE CASCADE
+
+--   CustomerCourseId INT,
+--   FOREIGN KEY (CustomerCourseId) REFERENCES CUSTOMER_COURSE(Id) ON DELETE CASCADE
+);

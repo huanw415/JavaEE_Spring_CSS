@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee" version="2.4"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http:/java.sun.com/dtd/web-app_2_3.dtd">
+
+    <!--<filter>-->
+        <!--<filter-name>hibernateFilter</filter-name>-->
+        <!--<filter-class> org.springframework.orm.hibernate4.support.OpenSessionInViewFilter </filter-class>-->
+        <!--<init-param>-->
+            <!--<param-name>sessionFactoryBeanName</param-name>-->
+            <!--<param-value>sessionFactory</param-value>-->
+        <!--</init-param>-->
+        <!--<init-param>-->
+            <!--<param-name>singleSession</param-name>-->
+            <!--<param-value>true</param-value>-->
+        <!--</init-param>-->
+        <!--<init-param>-->
+            <!--&lt;!&ndash; ???NEVER,????????AUTO??????&ndash;&gt;-->
+            <!--<param-name>flushMode</param-name>-->
+            <!--<param-value>AUTO</param-value>-->
+        <!--</init-param>-->
+    <!--</filter>-->
+
+    <!--<filter-mapping>-->
+        <!--<filter-name>hibernateFilter</filter-name>-->
+        <!--<url-pattern>/**</url-pattern>-->
+    <!--</filter-mapping>-->
+
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/spring-web-servlet.xml</param-value>
+    </context-param>
+
+    <listener>
+        <listener-class>
+            org.springframework.web.context.ContextLoaderListener
+        </listener-class>
+    </listener>
+
+    <servlet>
+        <servlet-name>spring-web</servlet-name>
+        <servlet-class>
+            org.springframework.web.servlet.DispatcherServlet
+        </servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>spring-web</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+
+
+
+
+    <!--<filter>-->
+        <!--<filter-name>OpenSessionInViewFilter</filter-name>-->
+        <!--<filter-class>org.springframework.orm.hibernate3.support.OpenSessionInViewFilter</filter-class>-->
+        <!--<init-param>-->
+            <!--<param-name>sessionFactoryBeanName</param-name><param-value>sessionFactory</param-value></init-param>-->
+    <!--</filter>-->
+    <!--<filter-mapping>-->
+        <!--<filter-name>OpenSessionInViewFilter</filter-name>-->
+        <!--<url-pattern>*.do</url-pattern>-->
+    <!--</filter-mapping>-->
+</web-app>
