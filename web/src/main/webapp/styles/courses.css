@@ -16,6 +16,7 @@ th {
 
 table, th, td {
     border: 1px solid #cdcdcd;
+    border-collapse: collapse;
 }
 
 a:link {

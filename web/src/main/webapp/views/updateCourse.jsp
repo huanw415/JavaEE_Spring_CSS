@@ -12,19 +12,17 @@
 <html>
 <head>
   <title>修改课程信息</title>
-  <%--<link href="../../lib/css/bootstrap.css" rel="stylesheet"/>--%>
   <link href="../../styles/updateCourses.css" rel="stylesheet">
+  
   <script src="../../lib/js/jquery-1.11.1.min.js"></script>
-  <%--<script src="../../lib/js/bootstrap.min.js"></script>--%>
   <script src="../../js/updateCourse.js"></script>
 </head>
 <body>
 <div class="container">
   <form id="create_course">
-    <%--<div class="row">--%>
-      <%--<div class="col-md-offset-4 col-lg-4">--%>
-        <h3>修改用户信息</h3>
-        <hr class="divider"/>
+
+      <h3>修改用户信息</h3>
+      <hr class="divider"/>
 
       <div class="form-group">
           <label for="name">姓名：</label>
@@ -50,10 +48,10 @@
         </select>
       </div>
 
-    <div class="col-md-offset-5">
-      <button type="submit" data-id="<%= ((Course) request.getAttribute("course")).getId() %>" class="btn btn-default submit">提交</button>
-      <a type="button" class="btn btn-default" href="/web/courses">返回</a>
-      <button type="reset" class="btn btn-default">清空</button>
+    <div class="footer_button">
+      <button class="submit" type="submit" data-id="<%= ((Course) request.getAttribute("course")).getId() %>">提交</button>
+      <button class="return" href="/web/courses">返回</button>
+      <button class="reset" type="reset">清空</button>
     </div>
   </form>
 
