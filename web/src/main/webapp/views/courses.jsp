@@ -55,7 +55,7 @@
     </table>
 
     <div>
-      <a type="button" href="./courses/creation">添加课程</a>
+      <a class="addCourse" type="button" href="./courses/creation">添加课程</a>
     </div>
   </div>
 </body>
