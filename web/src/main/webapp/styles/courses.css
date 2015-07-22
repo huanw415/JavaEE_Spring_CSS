@@ -1,3 +1,23 @@
 .courses {
     background-color: #d6d6d6;
 }
+
+table{
+    width: 800px;
+    height: 120px;
+    font-size: large;
+    text-align: center;
+    margin: 0 auto;
+}
+
+th {
+    text-align: center;
+}
+
+table, th, td {
+    border: 1px solid #cdcdcd;
+}
+
+a:link {
+    text-decoration: none;
+}

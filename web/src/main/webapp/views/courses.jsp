@@ -12,12 +12,12 @@
 <head>
   <title>课程管理</title>
 
-  <link href="./lib/css/bootstrap.css" rel="stylesheet"/>
+  <%--<link href="./lib/css/bootstrap.css" rel="stylesheet"/>--%>
   <link href="./styles/courses.css"rel="stylesheet"/>
 
 
   <script src="./lib/js/jquery-1.11.1.min.js"></script>
-  <script src="./lib/js/bootstrap.min.js"></script>
+  <%--<script src="./lib/js/bootstrap.min.js"></script>--%>
 
   <script src="./js/courses.js"></script>
 </head>
@@ -26,7 +26,7 @@
 
     <%@ include file="navBar.jsp" %>
 
-    <table class="table table-bordered">
+    <table class="courses_table">
       <caption><h2>课程信息表</h2></caption>
       <tr>
         <th>名称</th>
@@ -53,6 +53,7 @@
         }
       %>
     </table>
+
     <div>
       <a type="button" href="./courses/creation">添加课程</a>
     </div>
