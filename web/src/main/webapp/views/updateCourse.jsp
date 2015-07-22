@@ -12,55 +12,51 @@
 <html>
 <head>
   <title>修改课程信息</title>
-  <link href="../../lib/css/bootstrap.css" rel="stylesheet"/>
-
+  <%--<link href="../../lib/css/bootstrap.css" rel="stylesheet"/>--%>
+  <link href="../../styles/updateCourses.css" rel="stylesheet">
   <script src="../../lib/js/jquery-1.11.1.min.js"></script>
-  <script src="../../lib/js/bootstrap.min.js"></script>
+  <%--<script src="../../lib/js/bootstrap.min.js"></script>--%>
   <script src="../../js/updateCourse.js"></script>
 </head>
 <body>
 <div class="container">
-
-  <form>
-    <div class="row">
-      <div class="col-md-offset-4 col-lg-4">
+  <form id="create_course">
+    <%--<div class="row">--%>
+      <%--<div class="col-md-offset-4 col-lg-4">--%>
         <h3>修改用户信息</h3>
-        <hr />
-        <div class="form-group">
+        <hr class="divider"/>
+
+      <div class="form-group">
           <label for="name">姓名：</label>
-          <input type="text" class="form-control" id="name" placeholder="姓名" value="<%= ((Course)request.getAttribute("course")).getName()%>">
-        </div>
-
-        <div class="from-group">
-          <label for="dropdown">教练：</label>
-          <div class="dropdown" id ="dropdown">
-            <button data-id="<%= ((Course) request.getAttribute("course")).getEmployee().getId()%>" class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-              <%=((Course) request.getAttribute("course")).getEmployee().getName()%>
-              <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-              <%
-                List<Employee> coaches = (List<Employee>)request.getAttribute("coaches");
-
-                for(int i=0; i<coaches.size(); i++){
-              %>
-              <li>
-                <a type="button" class="chooseCoach" data-id="<%= coaches.get(i).getId()%>" data-name="<%= coaches.get(i).getName()%>"><%= coaches.get(i).getName()%></a>
-              </li>
-              <%
-                }
-              %>
-            </ul>
-          </div>
-        </div>
+          <input type="text" class="form-control" name="courseName" id="name" placeholder="姓名" value="<%= ((Course)request.getAttribute("course")).getName()%>">
       </div>
-    </div>
+
+      <div class="form-group">
+        <label for="dropdown">教练：</label>
+
+        <select id="dropdown" name="coachId" data-coach="<%= ((Course) request.getAttribute("course")).getEmployee().getId()%>">
+          <%
+            List<Employee> coaches = (List<Employee>)request.getAttribute("coaches");
+
+            for(int i=0; i<coaches.size(); i++){
+          %>
+
+          <option id="<%= coaches.get(i).getName()%>" data-id="<%= coaches.get(i).getId()%>" data-name="<%= coaches.get(i).getName()%>" value="<%= coaches.get(i).getId()%>">
+            <%= coaches.get(i).getName()%>
+          </option>
+          <%
+            }
+          %>
+        </select>
+      </div>
+
     <div class="col-md-offset-5">
-      <button data-id="<%= ((Course) request.getAttribute("course")).getId() %>" class="btn btn-default submit">提交</button>
+      <button type="submit" data-id="<%= ((Course) request.getAttribute("course")).getId() %>" class="btn btn-default submit">提交</button>
       <a type="button" class="btn btn-default" href="/web/courses">返回</a>
       <button type="reset" class="btn btn-default">清空</button>
     </div>
   </form>
+
 </div>
 </body>
 </html>

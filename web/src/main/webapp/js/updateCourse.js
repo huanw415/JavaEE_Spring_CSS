@@ -1,30 +1,20 @@
 $(function () {
 
-    $('.chooseCoach').on('click', function () {
+    var previousCoach = $('#dropdown').data('coach');
+    $('#dropdown').val(previousCoach);
 
-        var coachName = $(this).data("name");
-
-        $('#dropdownMenu').data('id', $(this).data('id'));
-        $('#dropdownMenu').text(coachName);
-
-        //console.log($('#dropdownMenu').data('id'));
-    });
-
-
-    $('.submit').on('click', function(){
-
-        var courseId = $(this).data("id");
-        var coachId = $('#dropdownMenu').data('id');
-        var courseName = $('#name').val().trim();
-
+    var form = $('#create_course');
+    var courseId = $('.submit').data("id");
+    
+    form.submit(function (ev) {
         $.ajax({
+            type: "POST",
             url: '/web/courses/update/' + courseId,
-            type: 'POST',
-            data: {coachId: coachId,
-                   courseName: courseName},
-            success: function(result){
+            data: form.serialize(),
+            success: function (result) {
                 $(location).attr('href', '/web/courses');
             }
         });
+        ev.preventDefault();
     });
 });
