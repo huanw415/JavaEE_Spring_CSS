@@ -34,9 +34,12 @@ public class EmployeeController {
     @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
     public ModelAndView updateEmployee(@PathVariable int id,
                                @RequestParam String employeeName,
-                               @RequestParam String role){
+                               @RequestParam String role,
+                               @RequestParam String email,
+                               @RequestParam String gender,
+                               @RequestParam int age){
 
-        Employee employee = new Employee(id, employeeName, role);
+        Employee employee = new Employee(id, employeeName, role, gender, email, age);
         employeeService.updateEmployee(employee);
         return new ModelAndView("redirect:/employees");
     }

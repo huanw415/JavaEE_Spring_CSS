@@ -44,13 +44,14 @@ public class EmployeeDao {
     public void updateEmployee(Employee employee){
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
-        Query query = session.createQuery("update Employee t set t.name=:name, t.role=:role where id=:id");
+//        Query query = session.createQuery("update Employee t set t.name=:name, t.role=:role where id=:id");
+//
+//        query.setInteger("id", employee.getId());
+//        query.setString("name", employee.getName());
+//        query.setString("role", employee.getRole());
 
-        query.setInteger("id", employee.getId());
-        query.setString("name", employee.getName());
-        query.setString("role", employee.getRole());
-
-        query.executeUpdate();
+//        query.executeUpdate();
+        session.update(employee);
         session.getTransaction().commit();
     }
 
