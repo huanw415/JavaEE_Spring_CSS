@@ -1,7 +1,6 @@
 package com.tw.controller;
 
 import com.tw.entity.Employee;
-import com.tw.entity.User;
 import com.tw.service.EmployeeService;
 import com.tw.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,11 +50,13 @@ public class EmployeeController {
     @RequestMapping(value = "/creation", method = RequestMethod.POST)
     public void createEmployee(@RequestParam String employeeName,
                                @RequestParam String role,
-                               @RequestParam String userName){
+                               @RequestParam String email,
+                               @RequestParam String gender,
+                               @RequestParam int age){
 
-        User user = userService.getUsersByName(userName).get(0);
-        Employee employee = new Employee(employeeName, role, user);
-
+//        User user = userService.getUsersByName(userName).get(0);
+//        Employee employee = new Employee(employeeName, role, user);
+        Employee employee = new Employee(employeeName, role, gender, email, age);
         employeeService.createEmployee(employee);
     }
 }

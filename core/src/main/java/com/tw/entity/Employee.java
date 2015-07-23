@@ -28,12 +28,20 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee(String name, String role, User user) {
+    public Employee(String name, String role, String gender, String email, int age) {
         this.name = name;
         this.role = role;
-//        this.user = user;
+        this.gender = gender;
+        this.email = email;
+        this.age = age;
     }
 
+    //    public Employee(String name, String role, User user) {
+//        this.name = name;
+//        this.role = role;
+////        this.user = user;
+//    }
+//
     public Employee(int id, String name, String role) {
         this.id = id;
         this.name = name;

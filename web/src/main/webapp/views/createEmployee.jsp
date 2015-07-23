@@ -22,7 +22,7 @@
 <body>
   <div class="container">
 
-    <form name="new_employee">
+    <form name="new_employee" id="new_employee">
       <div class="row">
         <div class="col-md-offset-4 col-lg-4">
           <h3>修改用户信息</h3>
@@ -90,7 +90,7 @@
         </div>
       </div>
       <div class="col-md-offset-5">
-        <a type="button" class="btn btn-default submit">提交</a>
+        <button type="submit" class="btn btn-default submit">提交</button>
         <a type="button" class="btn btn-default" href="/web/employees">返回</a>
         <button type="reset" class="btn btn-default">清空</button>
       </div>
