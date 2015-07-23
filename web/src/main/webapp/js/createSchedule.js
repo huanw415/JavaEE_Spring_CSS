@@ -12,8 +12,8 @@ $(function(){
         var courseName = $("#selector").find("option:selected").data('course');
 
         if(courseName !== 'private'){
-
-            $('#noneCustomer').show();
+            $('#title').hide();
+            $("#none").attr("checked",true);
         }else{
             $('.customer').show();
         }

@@ -28,8 +28,6 @@
       <div class="col-md-offset-4 col-lg-4">
         <h3>添加课程表</h3>
         <hr />
-
-
         <div class="form-group">
           课程名称:
 
@@ -52,7 +50,7 @@
           <div id="title"><label>顾客:</label></div>
           <div id="noneCustomer">
             <label for="none">
-              <input type="radio" id="none" name="customerId" value="0"> none
+              <input type="radio" id="none" name="customerId" value="0">
             </label>
           </div>
           <%
