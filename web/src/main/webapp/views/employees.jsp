@@ -37,22 +37,6 @@
             <td><%= employees.get(i).getRole()%></td>
             <td><%= employees.get(i).getGender()%></td>
             <td><%= employees.get(i).getEmail()%></td>
-
-            <%--<%--%>
-                <%--String userName = "";--%>
-                <%--String userGender = "";--%>
-                <%--String userEmail = "";--%>
-
-                <%--if(employees.get(i).getUser() != null){--%>
-                    <%--userName = employees.get(i).getUser().getName();--%>
-                    <%--userGender = employees.get(i).getUser().getGender();--%>
-                    <%--userEmail = employees.get(i).getUser().getEmail();--%>
-
-                <%--}--%>
-            <%--%>--%>
-            <%--<td><%= userName%></td>--%>
-            <%--<td><%= userGender%></td>--%>
-            <%--<td><%= userEmail%></td>--%>
             <td>
                 <a href="./employees/update/<%= employees.get(i).getId()%>">修改</a>
             </td>
