@@ -53,7 +53,7 @@ public class ScheduleController {
         ModelAndView modelAndView = new ModelAndView("createSchedule");
 
         modelAndView.addObject("courses", courseService.getAllCourses());
-        modelAndView.addObject("customers", customerService.getCustomersWithOutPrivate());
+        modelAndView.addObject("customers", customerService.getAllCustomers());
 
         return modelAndView;
     }

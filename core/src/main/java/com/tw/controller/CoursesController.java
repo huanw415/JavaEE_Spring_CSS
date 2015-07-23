@@ -64,9 +64,13 @@ public class CoursesController {
 
         List<Course> courses = courseService.getAllCourses();
         for(int i=0; i<courses.size(); i++){
-            if(courses.get(i).getName().equals(courseName)){
+            Course course = courses.get(i);
 
-                 return "the course has existed";
+            if(course.getName().equals(courseName) && (! course.getName().equals("private"))){
+                return "the course has existed";
+            }
+            if(course.getName().equals("private") && course.getEmployee().getName().equals(coachName)){
+                return "the course has existed";
             }
         }
 
