@@ -79,7 +79,7 @@ public class UserController {
         User user = userService.getUserById(id);
         user.setName(name);
         user.setPassword(password);
-//        User user = new User(id, name, Md5Util.md5(password));
+
         userService.updateUser(user);
 
         return new ModelAndView("redirect:/users");

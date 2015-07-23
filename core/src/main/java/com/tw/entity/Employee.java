@@ -5,13 +5,6 @@ import javax.persistence.*;
 /**
  * Created by hgwang on 7/16/15.
  */
-
-//Id INT AUTO_INCREMENT primary key,
-//Name VARCHAR(50) NOT NULL,
-//Role VARCHAR(10) NOT NULL,
-//Gender VARCHAR(10) NOT NULL,
-//Email VARCHAR(100) NOT NULL,
-//Age INT NOT NULL
 @Entity
 @Table(name="employee")
 public class Employee {
@@ -19,8 +12,6 @@ public class Employee {
     private int id;
     private String name;
     private String role;
-//    private User user;
-
     private String gender;
     private String email;
     private int age;
@@ -44,18 +35,6 @@ public class Employee {
         this.email = email;
         this.age = age;
     }
-
-    //    public Employee(String name, String role, User user) {
-//        this.name = name;
-//        this.role = role;
-////        this.user = user;
-//    }
-//
-//    public Employee(int id, String name, String role) {
-//        this.id = id;
-//        this.name = name;
-//        this.role = role;
-//    }
 
     @Id
     @Column(name="Id")
@@ -84,17 +63,6 @@ public class Employee {
     public void setRole(String role) {
         this.role = role;
     }
-
-//    @OneToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name="UserId")
-//    public User getUser() {
-//        return user;
-//    }
-//
-//    public void setUser(User user) {
-//        this.user = user;
-//    }
-
 
     @Column(name="Gender")
     public String getGender() {
