@@ -1,7 +1,9 @@
 .navigator{
     background-color: #f6f6f6;
     border-radius: 10px;
-    margin: auto 150px;
+    margin: auto auto;
+    /*margin: auto 150px;*/
+
     width: 1084px;
     height: 60px;
 }
