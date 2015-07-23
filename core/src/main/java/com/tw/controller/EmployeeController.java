@@ -57,6 +57,5 @@ public class EmployeeController {
         Employee employee = new Employee(employeeName, role, user);
 
         employeeService.createEmployee(employee);
-
     }
 }

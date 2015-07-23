@@ -30,7 +30,6 @@ public class CustomerService {
         List<Customer> customers = customerDao.getAllCustomers();
         List<Customer> customerResultList = new ArrayList<Customer>();
 
-
         for (Customer customer : customers) {
             int times = 0;
 
