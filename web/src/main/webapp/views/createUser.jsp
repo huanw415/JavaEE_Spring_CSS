@@ -1,3 +1,5 @@
+<%@ page import="com.tw.entity.Employee" %>
+<%@ page import="java.util.List" %>
 <%--
   Created by IntelliJ IDEA.
   User: hgwang
@@ -42,6 +44,25 @@
             <label for="password">密码</label>
             <input type="password" class="form-control" id="password" name="password" placeholder="密码">
           </div>
+
+
+          <div class="form-group">
+            <label>职员姓名：</label>
+            <select name="employeeName" id="selector">
+              <%
+                List<Employee> employeeList = (List<Employee>) request.getAttribute("employees");
+                for(int i=0; i<employeeList.size(); i++){
+              %>
+              <option id="<%= employeeList.get(i).getName()%>" value="<%= employeeList.get(i).getName()%>">
+                <%= employeeList.get(i).getName()%>
+              </option>
+              <%
+                }
+              %>
+            </select>
+
+          </div>
+
 
           <%--<div class="form-group">--%>
             <%--<label for="email">邮箱</label>--%>

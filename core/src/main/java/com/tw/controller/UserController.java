@@ -1,7 +1,9 @@
 package com.tw.controller;
 
 import com.tw.Util.Md5Util;
+import com.tw.entity.Employee;
 import com.tw.entity.User;
+import com.tw.service.EmployeeService;
 import com.tw.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +18,9 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private EmployeeService employeeService;
 
     private ModelAndView createModelAndView(String viewName, String objectName, Object objectValue){
 
@@ -36,17 +41,17 @@ public class UserController {
     @RequestMapping(value = "/creation", method = RequestMethod.GET)
     public ModelAndView getCreateUserPage() {
 
-            return new ModelAndView("createUser");
+            return new ModelAndView("createUser", "employees", employeeService.getAllEmployees());
     }
 
     @RequestMapping(value = "/creation", method = RequestMethod.POST)
     public ModelAndView createUser(@RequestParam String name,
-                                   @RequestParam String gender,
                                    @RequestParam String password,
-                                   @RequestParam String email,
-                                   @RequestParam int age){
+                                   @RequestParam String employeeName){
 
-        User user = new User(name, gender, email, age, Md5Util.md5(password));
+        Employee employee = employeeService.getEmployeeByName(employeeName);
+
+        User user = new User(name, Md5Util.md5(password), employee);
         userService.createUser(user);
 
         return new ModelAndView("redirect:/users");

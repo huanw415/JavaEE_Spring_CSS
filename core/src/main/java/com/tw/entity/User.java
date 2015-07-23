@@ -25,13 +25,19 @@ public class User {
     public User() {
     }
 
-    public User(String name, String gender, String email, int age, String password) {
+    public User(String name, String password, Employee employee) {
         this.name = name;
-//        this.gender = gender;
-//        this.email = email;
-//        this.age = age;
         this.password = password;
+        this.employee = employee;
     }
+
+    //    public User(String name, String gender, String email, int age, String password) {
+//        this.name = name;
+////        this.gender = gender;
+////        this.email = email;
+////        this.age = age;
+//        this.password = password;
+//    }
 
     public User(int id, String name, String gender, String email, int age, String password) {
         this.id = id;
