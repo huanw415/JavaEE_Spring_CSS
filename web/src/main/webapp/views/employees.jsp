@@ -22,7 +22,7 @@
         <tr>
             <th>姓名</th>
             <th>职位</th>
-            <th>用户名</th>
+            <%--<th>用户名</th>--%>
             <th>性别</th>
             <th>邮箱</th>
             <th>修改</th>
@@ -35,22 +35,24 @@
         <tr>
             <td><%= employees.get(i).getName()%></td>
             <td><%= employees.get(i).getRole()%></td>
+            <td><%= employees.get(i).getGender()%></td>
+            <td><%= employees.get(i).getEmail()%></td>
 
-            <%
-                String userName = "";
-                String userGender = "";
-                String userEmail = "";
+            <%--<%--%>
+                <%--String userName = "";--%>
+                <%--String userGender = "";--%>
+                <%--String userEmail = "";--%>
 
-                if(employees.get(i).getUser() != null){
-                    userName = employees.get(i).getUser().getName();
-                    userGender = employees.get(i).getUser().getGender();
-                    userEmail = employees.get(i).getUser().getEmail();
+                <%--if(employees.get(i).getUser() != null){--%>
+                    <%--userName = employees.get(i).getUser().getName();--%>
+                    <%--userGender = employees.get(i).getUser().getGender();--%>
+                    <%--userEmail = employees.get(i).getUser().getEmail();--%>
 
-                }
-            %>
-            <td><%= userName%></td>
-            <td><%= userGender%></td>
-            <td><%= userEmail%></td>
+                <%--}--%>
+            <%--%>--%>
+            <%--<td><%= userName%></td>--%>
+            <%--<td><%= userGender%></td>--%>
+            <%--<td><%= userEmail%></td>--%>
             <td>
                 <a href="./employees/update/<%= employees.get(i).getId()%>">修改</a>
             </td>

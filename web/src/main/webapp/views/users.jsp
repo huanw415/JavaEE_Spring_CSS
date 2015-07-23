@@ -26,11 +26,12 @@
     <table class="table table-bordered">
       <caption><h2>用户信息表</h2></caption>
       <tr>
-        <th>姓名</th>
-        <th>性别</th>
+        <th>用户名</th>
+        <th>职工姓名</th>
+        <%--<th>性别</th>--%>
         <%--<th>密码</th>--%>
-        <th>邮箱</th>
-        <th>年龄</th>
+        <%--<th>邮箱</th>--%>
+        <%--<th>年龄</th>--%>
         <th>修改</th>
         <th>删除</th>
       </tr>
@@ -41,10 +42,11 @@
       %>
       <tr>
         <td><%= users.get(i).getName()%></td>
-        <td><%= users.get(i).getGender()%></td>
+        <td><%= users.get(i).getEmployee().getName()%></td>
+        <%--<td><%= users.get(i).getGender()%></td>--%>
         <%--<td><%= users.get(i).getPassword()%></td>--%>
-        <td><%= users.get(i).getEmail()%></td>
-        <td><%= users.get(i).getAge()%></td>
+        <%--<td><%= users.get(i).getEmail()%></td>--%>
+        <%--<td><%= users.get(i).getAge()%></td>--%>
         <td>
           <a href="./users/update/<%= users.get(i).getId()%>">修改</a>
         </td>

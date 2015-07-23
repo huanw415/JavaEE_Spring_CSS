@@ -45,29 +45,48 @@
             </label>
           </div>
 
-          <div class="form-group">
-
-            <label for="dropdown">用户名：</label>
-            <div class="dropdown" id ="dropdown">
-              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                选择用户名
-                <span class="caret"></span>
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                <%
-                  List<User> users = (List<User>)request.getAttribute("users");
-
-                  for(int i=0; i<users.size(); i++){
-                %>
-                <li>
-                  <a type="button" class="chooseUser" data-id="<%= users.get(i).getId()%>" data-name="<%= users.get(i).getName()%>"><%= users.get(i).getName()%></a>
-                </li>
-                <%
-                  }
-                %>
-              </ul>
-            </div>
+          <div class="from-group">
+            <label>性别</label>
+            <label for="male">
+              <input type="radio" id="male" name="gender" value=男> 男
+            </label>
+            <label for="female">
+              <input type="radio" id="female" name="gender" value=女> 女
+            </label>
           </div>
+
+          <div class="form-group">
+            <label for="email">邮箱</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="邮箱">
+          </div>
+
+          <div class="form-group">
+            <label for="age">年龄</label>
+            <input type="text" class="form-control" id="age" name="age" placeholder="年龄">
+          </div>
+          <%--<div class="form-group">--%>
+
+            <%--<label for="dropdown">用户名：</label>--%>
+            <%--<div class="dropdown" id ="dropdown">--%>
+              <%--<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">--%>
+                <%--选择用户名--%>
+                <%--<span class="caret"></span>--%>
+              <%--</button>--%>
+              <%--<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">--%>
+                <%--<%--%>
+                  <%--List<User> users = (List<User>)request.getAttribute("users");--%>
+
+                  <%--for(int i=0; i<users.size(); i++){--%>
+                <%--%>--%>
+                <%--<li>--%>
+                  <%--<a type="button" class="chooseUser" data-id="<%= users.get(i).getId()%>" data-name="<%= users.get(i).getName()%>"><%= users.get(i).getName()%></a>--%>
+                <%--</li>--%>
+                <%--<%--%>
+                  <%--}--%>
+                <%--%>--%>
+              <%--</ul>--%>
+            <%--</div>--%>
+          <%--</div>--%>
         </div>
       </div>
       <div class="col-md-offset-5">
