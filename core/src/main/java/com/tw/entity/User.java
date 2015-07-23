@@ -39,14 +39,21 @@ public class User {
 //        this.password = password;
 //    }
 
-    public User(int id, String name, String gender, String email, int age, String password) {
-        this.id = id;
-        this.name = name;
-//        this.gender = gender;
-//        this.email = email;
-//        this.age = age;
-        this.password = password;
-    }
+//    public User(int id, String name, String gender, String email, int age, String password) {
+//        this.id = id;
+//        this.name = name;
+////        this.gender = gender;
+////        this.email = email;
+////        this.age = age;
+//        this.password = password;
+//    }
+
+
+//    public User(int id, String name, String password) {
+//        this.id = id;
+//        this.name = name;
+//        this.password = password;
+//    }
 
     @Id
     @Column(name = "Id")

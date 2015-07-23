@@ -81,7 +81,15 @@ public class UserDao {
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 
         session.beginTransaction();
-        session.update(user);
+
+        String hql = "update User t set t.name=:name, password=:password where id=:id";
+        Query query = session.createQuery(hql);
+        query.setString("name", user.getName());
+        query.setString("password", user.getPassword());
+        query.setInteger("id", user.getId());
+        
+        query.executeUpdate();
+
         session.getTransaction().commit();
     }
 }
