@@ -30,16 +30,6 @@
             <input type="text" class="form-control" id="name" name="name" placeholder="姓名">
           </div>
 
-          <%--<div class="from-group">--%>
-            <%--<label>性别</label>--%>
-            <%--<label for="male">--%>
-              <%--<input type="radio" id="male" name="gender" value=男> 男--%>
-            <%--</label>--%>
-            <%--<label for="female">--%>
-              <%--<input type="radio" id="female" name="gender" value=女> 女--%>
-            <%--</label>--%>
-          <%--</div>--%>
-
           <div class="form-group">
             <label for="password">密码</label>
             <input type="password" class="form-control" id="password" name="password" placeholder="密码">
@@ -62,17 +52,6 @@
             </select>
 
           </div>
-
-
-          <%--<div class="form-group">--%>
-            <%--<label for="email">邮箱</label>--%>
-            <%--<input type="email" class="form-control" id="email" name="email" placeholder="邮箱">--%>
-          <%--</div>--%>
-
-          <%--<div class="form-group">--%>
-            <%--<label for="age">年龄</label>--%>
-            <%--<input type="text" class="form-control" id="age" name="age" placeholder="年龄">--%>
-          <%--</div>--%>
 
           <div class="col-md-offset-5">
             <button type="submit" class="btn btn-default">提交</button>
