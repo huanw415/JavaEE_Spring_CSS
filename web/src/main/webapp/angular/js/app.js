@@ -1,10 +1,6 @@
 'use strict';
 
-angular.module('users_management', [
-    //'ngResource',
-    'ngRoute'
-    //'checklist-model'
-    ])
+angular.module('users_management', ['ngRoute'])
     .config(function($routeProvider){
         $routeProvider
             .when('/', {
