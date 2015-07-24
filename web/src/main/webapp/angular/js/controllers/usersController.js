@@ -1,7 +1,9 @@
 'use strict';
 
 angular.module('users_management')
-    .controller('usersController', function($scope){
+    .controller('usersController', function($scope, $http){
 
-        $scope.name="hello world";
+        $http.get('/web/api/users').success(function(users){
+            $scope.users = users;
+        });
     });
