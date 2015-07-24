@@ -1,2 +1,31 @@
-<input ng-model="name"/>
-<h1>{{name}}</h1>
+<div class="container">
+
+    <h2>
+        {{users}}
+    </h2>
+
+    <table class="table table-bordered">
+        <caption><h2>用户信息表</h2></caption>
+        <tr>
+            <th>用户名</th>
+            <th>职工姓名</th>
+            <th>修改</th>
+            <th>删除</th>
+        </tr>
+        <tr ng-repeat="user in users">
+            <td>{{user.name}}</td>
+            <td>{{user.employee.name}}</td>
+            <td>
+                <a href="./users/update/<%= users.get(i).getId()%>">修改</a>
+            </td>
+            <td>
+                <a type="button" class="deleteUser" data-id="<%= users.get(i).getId()%>">删除</a>
+            </td>
+        </tr>
+    </table>
+
+    <div>
+        <a type="button" href="./users/creation">添加新用户</a>
+    </div>
+
+</div>
