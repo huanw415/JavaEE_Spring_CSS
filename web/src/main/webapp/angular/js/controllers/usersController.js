@@ -11,5 +11,4 @@ angular.module('users_management')
 
             $location.path('/userCreation');
         };
-
     });

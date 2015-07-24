@@ -1,30 +1,28 @@
-<form name="new_user" method="POST" action="">
+<form name="userForm" novalidate role="form">
     <div class="row">
         <div class="col-md-offset-4 col-lg-4">
             <h3>添加新用户</h3>
             <hr />
             <div class="form-group">
                 <label for="name">姓名</label>
-                <input type="text" class="form-control" id="name" name="name" placeholder="姓名">
+                <input type="text" class="form-control" id="name" name="name" placeholder="姓名" ng-model="user.name">
             </div>
 
             <div class="form-group">
                 <label for="password">密码</label>
-                <input type="password" class="form-control" id="password" name="password" placeholder="密码">
+                <input type="password" class="form-control" id="password" name="password" placeholder="密码" ng-model="user.password">
             </div>
 
             <div class="form-group">
                 <label>职员姓名：</label>
-                <select name="employeeName" id="selector" >
-                    <option id="{employee.id}" value="{{employee.name}}" ng-repeat="employee in employees">
-                        {{employee.name}}
-                    </option>
+                <select name="employeeName" id="selector" ng-model="user.coach">
+                    <option ng-repeat="employee in employees">{{employee.name}}</option>
                 </select>
 
             </div>
 
             <div class="col-md-offset-5">
-                <button type="submit" class="btn btn-default">提交</button>
+                <button class="btn btn-default" ng-click="jumpToUsers()">提交</button>
                 <a type="button" class="btn btn-default" href="/web/users">返回</a>
                 <button type="reset" class="btn btn-default">清空</button>
             </div>
