@@ -9,7 +9,7 @@ angular.module('users_management', ['ngRoute'])
             })
             .when('/userCreation', {
                 templateUrl: 'views/usersCreation.html',
-                controller: 'usersController'
+                controller: 'userCreationController'
             })
             .when('/employees', {
                 templateUrl: 'views/employees.html',
