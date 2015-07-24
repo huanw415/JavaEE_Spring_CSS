@@ -7,12 +7,9 @@ angular.module('users_management')
             $scope.users = users;
         });
 
-        $scope.addNewUser = function(){
+        $scope.jumpToCreation = function(){
 
-            $http.get('/web/api/employees').success(function(employees){
-
-                $scope.employees = employees;
-                $location.path('/userCreation');
-            });
+            $location.path('/userCreation');
         };
+
     });
