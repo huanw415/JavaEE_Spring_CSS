@@ -46,19 +46,10 @@ public class UsersController {
     public void createUser(@RequestBody User currentUser,
                       @PathVariable int id){
 
-//        User user = userService.getUserById(id);
-//        user.setName(currentUser.getName());
-//        user.setPassword(currentUser.getPassword());
         currentUser.setId(id);
-        System.out.println("========================");
-        System.out.println(currentUser);
-        System.out.println(currentUser.getId());
-        System.out.println(currentUser.getName());
-        System.out.println(currentUser.getPassword());
-        System.out.println("========================");
+        currentUser.setPassword(Md5Util.md5(currentUser.getPassword()));
 
         userService.updateUser(currentUser);
-//        return gson.toJson(userService.getUserById(id));
     }
 
     @RequestMapping(method = RequestMethod.POST, produces=MediaType.APPLICATION_JSON_VALUE)
