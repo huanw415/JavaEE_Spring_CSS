@@ -12,7 +12,7 @@
             <td>{{user.name}}</td>
             <td>{{user.employee.name}}</td>
             <td>
-                <a href="./users/update/<%= users.get(i).getId()%>">修改</a>
+                <a href="#/userUpdate" ng-click="getUserById(user.id)">修改</a>
             </td>
             <td>
                 <a type="button" class="deleteUser" data-id="<%= users.get(i).getId()%>">删除</a>
