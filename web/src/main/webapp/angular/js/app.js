@@ -9,9 +9,9 @@ angular.module('users_management', ['ngRoute'])
             })
             .when('/userCreation', {
                 templateUrl: 'views/userCreation.html',
-                controller: 'usersController'
+                controller: 'userCreationController'
             })
-            .when('/userUpdate', {
+            .when('/userUpdate/:id', {
                 templateUrl: 'views/userUpdate.html',
                 controller: 'usersController'
             })
