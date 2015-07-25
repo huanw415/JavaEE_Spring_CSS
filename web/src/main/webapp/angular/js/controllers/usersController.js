@@ -9,6 +9,25 @@ angular.module('users_management')
 
         $scope.jumpToCreation = function(){
 
-            $location.path('/userCreation');
+            $http.get('/web/api/employees').success(function(employees){
+
+                $scope.employees = employees;
+                $location.path('/userCreation');
+            });
         };
+
+        $scope.jumpToUsers = function(){
+
+            $http({
+                method: 'POST',
+                url: '/web/api/users',
+                params: {
+                    'name': $scope.user.name,
+                    'password': $scope.user.password,
+                    'employeeName': $scope.user.coach
+                }
+            }).success(function(){
+                $location.path('/users');
+            });
+        }
     });
