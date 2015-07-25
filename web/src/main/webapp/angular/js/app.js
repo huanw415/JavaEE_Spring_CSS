@@ -13,7 +13,7 @@ angular.module('users_management', ['ngRoute'])
             })
             .when('/userUpdate', {
                 templateUrl: 'views/userUpdate.html',
-                controller: 'userUpdateController'
+                controller: 'usersController'
             })
             .when('/employees', {
                 templateUrl: 'views/employees.html',

@@ -29,5 +29,9 @@ angular.module('users_management')
             }).success(function(){
                 $location.path('/users');
             });
-        }
+        };
+
+        $scope.jumpToUpdate = function(user){
+            $scope.updatedUser = user;
+        };
     });
