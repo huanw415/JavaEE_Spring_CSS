@@ -14,5 +14,5 @@ angular.module('users_management')
 
                     $location.path('/users');
             });
-        }
+        };
     });

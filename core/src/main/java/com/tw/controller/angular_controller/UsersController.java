@@ -59,4 +59,9 @@ public class UsersController {
         User user = new User(name, Md5Util.md5(password), employeeService.getEmployeeByName(employeeName));
         userService.createUser(user);
     }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public void deleteUserById(@PathVariable int id){
+        userService.deleteUser(userService.getUserById(id));
+    }
 }

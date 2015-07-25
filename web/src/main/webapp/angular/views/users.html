@@ -15,7 +15,7 @@
                 <a href="#/userUpdate/{{user.id}}">修改</a>
             </td>
             <td>
-                <a type="button" class="deleteUser" data-id="<%= users.get(i).getId()%>">删除</a>
+                <a ng-click="deleteUser(user.id)">删除</a>
             </td>
         </tr>
     </table>
