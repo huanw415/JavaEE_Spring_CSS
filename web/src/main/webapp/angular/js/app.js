@@ -18,5 +18,13 @@ angular.module('users_management', ['ngRoute'])
             .when('/employees', {
                 templateUrl: 'views/employees.html',
                 controller: 'employeesController'
+            })
+            .when('/employees/creation', {
+                templateUrl: 'views/employeeCreation.html',
+                controller: 'employeeCreationController'
+            })
+            .when('/employees/update/:id', {
+                templateUrl: 'views/employeeUpdate.html',
+                controller: 'employeeUpdateController'
             });
     });
