@@ -1,1 +1,24 @@
-<h1>ssssssssssssss</h1>
+<table class="table table-bordered">
+    <caption><h2>职员信息表</h2></caption>
+    <tr>
+        <th>姓名</th>
+        <th>职位</th>
+        <th>性别</th>
+        <th>邮箱</th>
+        <th>修改</th>
+    </tr>
+
+    <tr ng-repeat="employee in employees">
+        <td>{{employee.name}}</td>
+        <td>{{employee.role}}</td>
+        <td>{{employee.gender}}</td>
+        <td>{{employee.email}}</td>
+        <td>
+            <a href="./employees/update/<%= employees.get(i).getId()%>">修改</a>
+        </td>
+    </tr>
+</table>
+
+<div>
+    <a type="button" href="./employees/creation">添加职员</a>
+</div>
