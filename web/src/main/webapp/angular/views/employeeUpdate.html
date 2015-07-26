@@ -5,44 +5,44 @@
             <hr />
             <div class="form-group">
                 <label for="employeeName">姓名</label>
-                <input type="text" class="form-control" id="employeeName" name="employeeName" placeholder="姓名" value="{{employee.name}}">
+                <input type="text" class="form-control" id="employeeName" name="employeeName" placeholder="姓名" value="{{employee.name}}" ng-model="employee.name">
             </div>
 
             <div class="from-group">
                 <label id="role">职位</label>
                 <label for="OPs">
-                    <input type="radio" id="OPs" name="role" value="OPs" ng-checked="OPs"> OPs
+                    <input type="radio" id="OPs" name="role" value="OPs" ng-checked="OPs" ng-model="employee.role"> OPs
                 </label>
                 <label for="coach">
-                    <input type="radio" id="coach" name="role" value="Coach" ng-checked="Coach"> Coach
+                    <input type="radio" id="coach" name="role" value="Coach" ng-checked="Coach" ng-model="employee.role"> Coach
                 </label>
                 <label for="HR">
-                    <input type="radio" id="HR" name="role" value="HR" ng-checked="HR"> HR
+                    <input type="radio" id="HR" name="role" value="HR" ng-checked="HR" ng-model="employee.role"> HR
                 </label>
             </div>
 
             <div class="from-group">
                 <label id="gender">性别</label>
                 <label for="male">
-                    <input type="radio" id="male" name="gender" value=男 ng-checked="male"> 男
+                    <input type="radio" id="male" name="gender" value="male" ng-checked="male" ng-model="employee.gender"> 男
                 </label>
                 <label for="female">
-                    <input type="radio" id="female" name="gender" value=女 ng-checked="female"> 女
+                    <input type="radio" id="female" name="gender" value="female" ng-checked="female" ng-model="employee.gender"> 女
                 </label>
             </div>
 
             <div class="form-group">
                 <label for="email">邮箱</label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="邮箱" value="{{employee.email}}">
+                <input type="email" class="form-control" id="email" name="email" placeholder="邮箱" value="{{employee.email}}" ng-model="employee.email">
             </div>
 
             <div class="form-group">
                 <label for="age">年龄</label>
-                <input type="text" class="form-control" id="age" name="age" placeholder="年龄" value="{{employee.age}}">
+                <input type="text" class="form-control" id="age" name="age" placeholder="年龄" value="{{employee.age}}" ng-model="employee.age">
             </div>
 
             <div class="col-md-offset-5">
-                <button type="submit" class="btn btn-default">提交</button>
+                <button type="submit" class="btn btn-default" ng-click="updateUser(employee)">提交</button>
                 <a type="button" class="btn btn-default" href="#/employees">返回</a>
                 <button type="reset" class="btn btn-default">清空</button>
             </div>

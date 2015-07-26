@@ -38,4 +38,10 @@ public class EmployeesController {
     public String getEmployeeById(@PathVariable int id){
         return gson.toJson(employeeService.getEmployeeById(id));
     }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
+    public void updateEmployee(@RequestBody Employee employee,
+                               @PathVariable int id){
+        employeeService.updateEmployee(employee);
+    }
 }

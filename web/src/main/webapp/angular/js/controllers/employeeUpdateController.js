@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('users_management')
-    .controller('employeeUpdateController', function($scope, $routeParams, $http){
+    .controller('employeeUpdateController', function($scope, $routeParams, $http, $location){
 
         var updateId = $routeParams.id;
 
@@ -32,4 +32,13 @@ angular.module('users_management')
 
             $scope.employee = employee;
         });
+
+        $scope.updateUser = function(employee){
+            $http.put('/web/api/employees/' + updateId,
+                {id: employee.id, name: employee.name, role: employee.role, gender: employee.gender, email: employee.email, age: employee.age})
+                .success(function () {
+                    $location.path('/employees');
+                })
+
+        }
     });
