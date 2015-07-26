@@ -24,10 +24,10 @@
             <div class="from-group">
                 <label>性别</label>
                 <label for="male">
-                    <input type="radio" id="male" name="gender" value=男 ng-model="employee.gender"> 男
+                    <input type="radio" id="male" name="gender" value="male" ng-model="employee.gender"> 男
                 </label>
                 <label for="female">
-                    <input type="radio" id="female" name="gender" value=女 ng-model="employee.gender"> 女
+                    <input type="radio" id="female" name="gender" value="female" ng-model="employee.gender"> 女
                 </label>
             </div>
 
@@ -45,7 +45,7 @@
     </div>
     <div class="col-md-offset-5">
         <button class="btn btn-default submit" ng-click="createEmployee(employee)">提交</button>
-        <a type="button" class="btn btn-default" href="/web/employees">返回</a>
+        <a type="button" class="btn btn-default" href="#/employees">返回</a>
         <button type="reset" class="btn btn-default">清空</button>
     </div>
 </form>

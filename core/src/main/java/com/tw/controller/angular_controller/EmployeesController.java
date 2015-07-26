@@ -33,4 +33,9 @@ public class EmployeesController {
     public void createEmployee(@RequestBody Employee employee){
         employeeService.createEmployee(employee);
     }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public String getEmployeeById(@PathVariable int id){
+        return gson.toJson(employeeService.getEmployeeById(id));
+    }
 }
