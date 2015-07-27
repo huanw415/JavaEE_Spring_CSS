@@ -1,5 +1,6 @@
 package com.tw.controller.angular_controller;
 
+import com.tw.entity.Customer;
 import com.tw.service.CustomerService;
 import com.tw.service.EmployeeService;
 import flexjson.JSONSerializer;
@@ -37,9 +38,11 @@ public class CustomersController {
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     public void updateCustomer(@PathVariable int id,
                                @RequestParam String name){
-        System.out.println("======================");
-        System.out.println("======================");
-        System.out.println("======================");
         customerService.updateNameCustomer(customerService.getCustomerById(id), name);
+    }
+
+    @RequestMapping(method = RequestMethod.POST)
+    public void createCustomer(@RequestBody Customer customer){
+        customerService.createCustomer(customer);
     }
 }

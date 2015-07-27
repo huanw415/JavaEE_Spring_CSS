@@ -1,0 +1,17 @@
+<form name="new_customer">
+    <div class="row">
+        <div class="col-md-offset-4 col-lg-4">
+            <h3>添加新顾客</h3>
+            <hr />
+            <div class="form-group">
+                <label for="name">姓名</label>
+                <input ng-model="customer.name" type="text" class="form-control" id="name" name="customerName" placeholder="姓名">
+            </div>
+            <div class="col-md-offset-5">
+                <button type="submit" class="btn btn-default" ng-click="createCustomer(customer)">提交</button>
+                <a type="button" class="btn btn-default" href="#/customers">返回</a>
+                <button type="reset" class="btn btn-default">清空</button>
+            </div>
+        </div>
+    </div>
+</form>
