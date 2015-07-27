@@ -40,7 +40,7 @@ angular.module('users_management', ['ngRoute'])
                 controller: 'customerCreationController'
             })
             .when('/courses', {
-                templateUrl: 'views/course.html',
+                templateUrl: 'views/courses.html',
                 controller: 'coursesController'
             });
     });
