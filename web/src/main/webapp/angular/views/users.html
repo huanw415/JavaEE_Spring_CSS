@@ -12,7 +12,7 @@
             <td>{{user.name}}</td>
             <td>{{user.employee.name}}</td>
             <td>
-                <a href="#/userUpdate/{{user.id}}">修改</a>
+                <a href="#/users/update/{{user.id}}">修改</a>
             </td>
             <td>
                 <a ng-click="deleteUser(user.id)">删除</a>
@@ -21,7 +21,7 @@
     </table>
 
     <div>
-        <a href="#/userCreation">添加新用户</a>
+        <a href="#/users/creation">添加新用户</a>
     </div>
 
 </div>
