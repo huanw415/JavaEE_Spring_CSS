@@ -38,5 +38,9 @@ angular.module('users_management', ['ngRoute'])
             .when('/customers/creation', {
                 templateUrl: 'views/customerCreation.html',
                 controller: 'customerCreationController'
+            })
+            .when('/courses', {
+                templateUrl: 'views/course.html',
+                controller: 'coursesController'
             });
     });
