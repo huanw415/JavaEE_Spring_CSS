@@ -33,4 +33,13 @@ public class CustomersController {
     String getCustomerById(@PathVariable int id){
         return jsonSerializer.serialize(customerService.getCustomerById(id));
     }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    public void updateCustomer(@PathVariable int id,
+                               @RequestParam String name){
+        System.out.println("======================");
+        System.out.println("======================");
+        System.out.println("======================");
+        customerService.updateNameCustomer(customerService.getCustomerById(id), name);
+    }
 }
