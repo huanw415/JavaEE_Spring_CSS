@@ -2,7 +2,6 @@ package com.tw.controller.angular_controller;
 
 import com.tw.entity.Customer;
 import com.tw.service.CustomerService;
-import com.tw.service.EmployeeService;
 import flexjson.JSONSerializer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -20,9 +19,6 @@ public class CustomersController {
 
     private   JSONSerializer jsonSerializer= new JSONSerializer();
 
-    @Autowired
-    private EmployeeService employeeService;
-
     @RequestMapping(method = RequestMethod.GET)
     public @ResponseBody
     String getAllEmployees(){
@@ -32,6 +28,7 @@ public class CustomersController {
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public @ResponseBody
     String getCustomerById(@PathVariable int id){
+
         return jsonSerializer.serialize(customerService.getCustomerById(id));
     }
 
@@ -44,5 +41,10 @@ public class CustomersController {
     @RequestMapping(method = RequestMethod.POST)
     public void createCustomer(@RequestBody Customer customer){
         customerService.createCustomer(customer);
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public void deleteCustomerById(@PathVariable int id){
+        customerService.deleteCustomer(customerService.getCustomerById(id));
     }
 }
