@@ -11,7 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @RestController
 @RequestMapping("/customers")
-public class CustomersController {
+public class CustomerController {
 
     @Autowired
     private CustomerService customerService;
