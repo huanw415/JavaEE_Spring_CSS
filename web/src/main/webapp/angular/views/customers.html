@@ -12,7 +12,7 @@
             <td>{{customerObject.name}}</td>
             <td>{{customerObject.privateCoach}}</td>
             <td>
-                <a href="./customers/update/<%= customers.get(i).getId()%>">修改</a>
+                <a href="#/customers/update/{{customerObject.id}}">修改</a>
             </td>
             <td>
                 <a type="button" class="deleteCustomer" data-id="<%= customers.get(i).getId()%>">删除</a>

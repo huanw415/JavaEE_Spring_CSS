@@ -30,5 +30,9 @@ angular.module('users_management', ['ngRoute'])
             .when('/customers', {
                 templateUrl: 'views/customers.html',
                 controller: 'customersController'
+            })
+            .when('/customers/update/:id', {
+                templateUrl: 'views/customerUpdate.html',
+                controller: 'customerUpdateController'
             });
     });
