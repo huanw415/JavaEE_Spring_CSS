@@ -9,7 +9,7 @@
         </tr>
 
         <tr ng-repeat="customerObject in customerObjects">
-            <td>{{customerObject.customer.name}}</td>
+            <td>{{customerObject.name}}</td>
             <td>{{customerObject.privateCoach}}</td>
             <td>
                 <a href="./customers/update/<%= customers.get(i).getId()%>">修改</a>
