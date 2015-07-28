@@ -15,12 +15,11 @@ angular.module('users_management')
                 url: '/web/api/courses',
                 params: {courseName: course.name, coachName: course.employee}
             }).success(function (result) {
-console.log(result);
+
                 if(result == 'the course has existed'){
                     $scope.inputStyle = {'background-color':'pink'};
-                    //$('#courseName').css('border', "red 1px solid");
                 }else{
-                    $location.path('/course');
+                    $location.path('/courses');
                 }
             });
 
