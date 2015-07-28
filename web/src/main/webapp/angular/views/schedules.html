@@ -1,0 +1,31 @@
+<div class="container">
+    <table class="table table-bordered">
+        <caption><h2>课表</h2></caption>
+        <tr>
+            <th>课程名称</th>
+            <th>教师</th>
+            <th>时间</th>
+            <th>顾客</th>
+            <th>修改</th>
+            <th>删除</th>
+        </tr>
+
+        <tr ng-repeat="schedule in schedules">
+            <td>{{schedule.course.name}}</td>
+            <td>{{schedule.course.employee.name}}</td>
+            <td>{{schedule.time}}</td>
+            <td>{{schedule.customer.name}}</td>
+
+            <td>
+                <a href="./schedules/update/<%= schedules.get(i).getId()%>">修改</a>
+            </td>
+            <td>
+                <a type="button" class="deleteSchedule" data-id="<%= schedules.get(i).getId()%>">删除</a>
+            </td>
+        </tr>
+    </table>
+
+    <div>
+        <a type="button" href="./schedules/creation">添加课表</a>
+    </div>
+</div>

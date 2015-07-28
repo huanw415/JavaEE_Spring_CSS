@@ -7,7 +7,6 @@ angular.module('users_management')
             $scope.users = users;
         });
 
-
         $scope.deleteUser = function(id){
             $http.delete('/web/api/users/' + id)
                 .success(function(){
