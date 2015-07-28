@@ -51,4 +51,10 @@ public class CoursesController {
 
         return jsonSerializer.serialize("the course has not existed");
     }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public void deleteCourseById(@PathVariable int id){
+        courseService.deleteCourse(id);
+    }
+
 }
