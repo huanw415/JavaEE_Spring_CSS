@@ -3,10 +3,7 @@ package com.tw.controller.angular_controller;
 import com.tw.service.ScheduleService;
 import flexjson.JSONSerializer;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by hgwang on 7/28/15.
@@ -24,5 +21,10 @@ public class SchedulesController {
     public @ResponseBody
     String getAllSchedules(){
         return jsonSerializer.include("course", "customer").serialize(scheduleService.getAllSchedules());
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public void deleteSchedule(@PathVariable int id){
+        scheduleService.deleteScheduleById(id);
     }
 }
