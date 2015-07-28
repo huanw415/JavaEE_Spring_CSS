@@ -31,7 +31,8 @@ public class CoursesController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public String createCourse(@RequestParam String courseName,
+    public @ResponseBody
+    String createCourse(@RequestParam String courseName,
                                @RequestParam String coachName){
 
         List<Course> courses = courseService.getAllCourses();
@@ -58,7 +59,17 @@ public class CoursesController {
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public String getCourse(@PathVariable int id){
+    public @ResponseBody
+    String getCourse(@PathVariable int id){
         return jsonSerializer.include("employee").serialize(courseService.getCourseById(id));
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.POST)
+    public void UpdateCourse(@PathVariable int id,
+                               @RequestParam String courseName,
+                               @RequestParam String coachName){
+
+        Course course = new Course(id, courseName, employeeService.getEmployeeByName(coachName));
+        courseService.updateCourse(course);
     }
 }
