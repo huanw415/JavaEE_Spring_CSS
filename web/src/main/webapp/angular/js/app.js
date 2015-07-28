@@ -50,5 +50,9 @@ angular.module('users_management', ['ngRoute'])
             .when('/courses/update/:id', {
                 templateUrl: 'views/courseUpdate.html',
                 controller: 'courseUpdateController'
+            })
+            .when('/schedules', {
+                templateUrl: 'views/schedules.html',
+                controller: 'schedulesController'
             });
     });
