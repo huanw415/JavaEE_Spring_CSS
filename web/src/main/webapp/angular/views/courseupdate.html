@@ -1,0 +1,28 @@
+<div class="container">
+    <form id="create_course">
+<h4>{{course.name}}</h4>
+        <h3>修改用户信息</h3>
+        <hr class="divider"/>
+
+        <div class="form-group">
+            <label for="name">姓名：</label>
+            <input type="text" class="form-control" name="courseName" id="name" placeholder="姓名" value="{{course.name}}" ng-model="course.name">
+        </div>
+
+        <div class="form-group">
+            <label for="dropdown">教练：</label>
+
+            <select id="dropdown" name="coachId" ng-model="course.employee.name">
+
+                <option ng-repeat="coach in coaches">{{coach.name}}</option>
+            </select>
+        </div>
+
+        <div class="footer_button">
+            <button class="submit" type="submit" ng-click="updateCourse(course)">提交</button>
+            <button class="return" type="button" href="#/courses">返回</button>
+            <button class="reset" type="reset">清空</button>
+        </div>
+    </form>
+
+</div>

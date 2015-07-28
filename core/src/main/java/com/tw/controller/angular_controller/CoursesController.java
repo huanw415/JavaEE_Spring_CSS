@@ -57,4 +57,8 @@ public class CoursesController {
         courseService.deleteCourse(id);
     }
 
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public String getCourse(@PathVariable int id){
+        return jsonSerializer.include("employee").serialize(courseService.getCourseById(id));
+    }
 }
