@@ -34,13 +34,11 @@ public class CoursesController {
     public String createCourse(@RequestParam String courseName,
                                @RequestParam String coachName){
 
-//        String coachName = createdCourse.getName();
         List<Course> courses = courseService.getAllCourses();
         for(int i=0; i<courses.size(); i++){
             Course course = courses.get(i);
 
             if(course.getName().equals(courseName) && (! course.getName().equals("private"))){
-//                "the course has existed";
                 return jsonSerializer.serialize("the course has existed");
             }
             if(course.getName().equals(courseName) && courseName.equals("private")  && course.getEmployee().getName().equals(coachName)){
