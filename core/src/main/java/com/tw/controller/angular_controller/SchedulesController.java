@@ -66,6 +66,7 @@ public class SchedulesController {
     public @ResponseBody
     String createCommonSchedule(@RequestParam String courseName,
                                 @RequestParam String time){
+
         String formativeTime = time.substring(0, 10);
 
         Course course = courseService.getCourseByName(courseName);

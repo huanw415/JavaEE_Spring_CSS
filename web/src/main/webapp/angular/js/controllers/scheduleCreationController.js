@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('users_management')
-    .controller('scheduleCreationController', function ($scope, $http, $location) {
+    .controller('scheduleCreationController', function ($scope, $http, $location, $filter) {
 
         //$scope.course;
         $http.get('/web/api/courses').success(function (courses) {
@@ -31,7 +31,7 @@ angular.module('users_management')
                 url: '/web/api/schedules/privateCreation',
                 params: {
                     coachName: coachName,
-                    time: privateTime,
+                    time: $filter('date')(privateTime, 'yyyy-MM-dd'),
                     customerName: customerName
                 }
             }).success(function (result) {
@@ -50,13 +50,13 @@ angular.module('users_management')
                 url: '/web/api/schedules/commonCreation',
                 params:{
                     courseName: courseName,
-                    time: commonTime
+                    time: $filter('date')(commonTime, 'yyyy-MM-dd')
                 }
             }).success(function (result) {
                 if(result == 'coach is busy'){
                     $scope.commonTimeStyle = {'background-color':'pink'};
                 }else{
-                    //$location.path('/schedules');
+                    $location.path('/schedules');
                 }
             });
         }

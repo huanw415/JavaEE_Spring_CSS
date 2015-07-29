@@ -14,7 +14,8 @@
 
                 <div class="from-group">
                     <label for="common_time">时间：</label>
-                    <input type="date" class="form-control" id="common_time" ng-model="commonTime" ng-style="commonTimeStyle">
+                    <!--<input type="date" class="form-control" id="common_time" ng-model="commonTime" ng-style="commonTimeStyle">-->
+                    <input type="date" class="form-control" id="common_time" placeholder="yyyy-MM-dd" min="2015-01-01" max="2050-12-31"  ng-model="commonTime" ng-style="commonTimeStyle" ng-required="string">
                 </div>
             </div>
         </div>
