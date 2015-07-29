@@ -39,4 +39,25 @@ public class CourseService {
         Course course = courseDao.getCourseById(id);
         courseDao.deleteCourse(course);
     }
+
+    public Course getCourseByName(String name){
+        return courseDao.getCourseByName(name);
+    }
+
+    public List<Course> getPrivateCourse() {
+        return courseDao.getPrivateCourse();
+    }
+//
+//    public List<Course> getCommonCourse(){
+//        List<Course> courses = getAllCourses();
+//
+//        List<Course> commonCourses = new ArrayList<Course>();
+//        for(int i=0; i<courses.size(); i++){
+//            if(courses.get(i).getName() != "private"){
+//                commonCourses.add(courses.get(i));
+//            }
+//        }
+//
+//        return commonCourses;
+//    }
 }

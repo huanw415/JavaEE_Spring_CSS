@@ -42,6 +42,21 @@ public class CustomerDao {
         return customer;
     }
 
+    public Customer getCustomerByName(String customerName) {
+
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+
+        session.beginTransaction();
+
+        Query query = session.createQuery("FROM Customer where name=:name");
+        query.setString("name", customerName);
+        Customer customer = (Customer) query.list().get(0);
+
+        session.getTransaction().commit();
+
+        return customer;
+    }
+
     public void updateCourseOfCustomer(Course course, Customer customer) {
 
         List<Course> courses = customer.getCourses();

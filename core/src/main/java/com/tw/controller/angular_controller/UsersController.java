@@ -28,10 +28,12 @@ public class UsersController {
             .registerTypeAdapterFactory(HibernateProxyTypeAdapter.FACTORY)
             .create();
 
+//    private JSONSerializer jsonSerializer = new JSONSerializer();
+
     @RequestMapping(method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody
     String getAllUsers(){
-
+//        return jsonSerializer.include("employee").serialize(userService.getAllUsers());
         return gson.toJson(userService.getAllUsers());
     }
 

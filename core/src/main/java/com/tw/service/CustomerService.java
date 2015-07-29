@@ -26,6 +26,10 @@ public class CustomerService {
         return customerDao.getCustomerById(customerId);
     }
 
+    public Customer getCustomerByName(String customerName){
+        return customerDao.getCustomerByName(customerName);
+    }
+
     public List<Customer> getCustomersWithOutPrivate(){
         List<Customer> customers = customerDao.getAllCustomers();
         List<Customer> customerResultList = new ArrayList<Customer>();

@@ -45,6 +45,21 @@ public class CourseDao {
         return course;
     }
 
+    public Course getCourseByName(String name) {
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+
+        session.beginTransaction();
+
+        String hql = "FROM Course where name=:name";
+        Query query = session.createQuery(hql);
+        query.setString("name", name);
+
+        Course course = (Course)query.list().get(0);
+
+        session.getTransaction().commit();
+        return course;
+    }
+
     public void updateCourse(Course course) {
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 
@@ -80,5 +95,20 @@ public class CourseDao {
         session.beginTransaction();
         session.delete(course);
         session.getTransaction().commit();
+    }
+
+    public List<Course> getPrivateCourse() {
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+
+        session.beginTransaction();
+
+        String hql = "FROM Course where name=:name";
+        Query query = session.createQuery(hql);
+        query.setString("name", "private");
+
+        List<Course> courses = (List<Course>) query.list();
+
+        session.getTransaction().commit();
+        return courses;
     }
 }
