@@ -1,0 +1,62 @@
+<div class="container">
+    <form id="common_schedule" name="common_schedule">
+        <div class="row">
+            <div class="col-md-offset-4 col-lg-4">
+                <h3>添加公共课表</h3>
+                <hr />
+
+                <div class="form-group">
+                    课程名称:
+                    <select id="selector" ng-model="course">
+                        <option ng-repeat="course in courses" ng-model="course.name">{{course.name}}</option>
+                    </select>
+                </div>
+
+                <div class="from-group">
+                    <label for="common_time">时间：</label>
+                    <input type="date" class="form-control" id="common_time" ng-model="commonTime">
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12">&nbsp;</div>
+        <div class="col-md-offset-5">
+            <button type="submit" class="btn btn-default" ng-click="saveCommonCourse(course, commonTime)">提交</button>
+            <a type="button" class="btn btn-default" href="/web/schedules">返回</a>
+            <button type="reset" class="btn btn-default">清空</button>
+        </div>
+    </form>
+
+    <form id="private_schedule" name="private_schedule">
+        <div class="row">
+            <div class="col-md-offset-4 col-lg-4">
+                <h3>添加私教课程表</h3>
+                <hr />
+                <div class="form-group">
+                    私教姓名:
+                    <select id="coachSelector" ng-model="privateCoach.name">
+                        <option ng-repeat="privateCoach in privateCoaches">{{privateCoach.name}}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    顾客姓名:
+                    <select id="customerSelector" ng-model="customer.name">
+                        <option ng-repeat="customer in customers">{{customer.name}}</option>
+                    </select>
+                </div>
+
+                <div class="from-group">
+                    <label for="private_time">时间：</label>
+                    <input type="date" class="form-control" id="private_time" ng-model="privateTime" ng-style="privateTimeStyle">
+                </div>
+                <div class="col-lg-12">&nbsp;</div>
+                <div class="col-md-offset-5">
+                    <button type="submit" class="btn btn-default" ng-click="savePrivateCourse(privateCoach.name, customer.name, privateTime)")>提交</button>
+                    <a type="button" class="btn btn-default" href="/web/schedules">返回</a>
+                    <button type="reset" class="btn btn-default">清空</button>
+                </div>
+            </div>
+        </div>
+
+    </form>
+</div>

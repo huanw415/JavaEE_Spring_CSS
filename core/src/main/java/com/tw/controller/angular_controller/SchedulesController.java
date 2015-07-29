@@ -1,11 +1,15 @@
 package com.tw.controller.angular_controller;
 
+import com.tw.entity.Course;
+import com.tw.entity.Customer;
 import com.tw.service.CourseService;
 import com.tw.service.CustomerService;
 import com.tw.service.ScheduleService;
 import flexjson.JSONSerializer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * Created by hgwang on 7/28/15.
@@ -37,27 +41,23 @@ public class SchedulesController {
         scheduleService.deleteScheduleById(id);
     }
 
-//    @RequestMapping(value = "/privateCreation", method = RequestMethod.POST)
-//    public String createSchedule(@RequestParam String coachName,
-//                                 @RequestParam String customerName,
-//                                 @RequestParam String time){
-//
-//        System.out.println("===================================");
-//        System.out.println("coachName: " + coachName);
-//        System.out.println("customerName: " +customerName);
-//        System.out.println("time: " + time);
-//        System.out.println("===================================");
-//
-//        Course course = courseService.getCourseByName(courseName);
-//        Customer customer = customerService.getCustomerByName(customerName);
-//
-//        List<String> timeList = scheduleService.getTimeListOfCourse(course.getId());
-//
-//        if(timeList.contains(time)){
-//            return jsonSerializer.serialize("coach is busy");
-//        }else{
-//            scheduleService.createSchedule(course.getId(), customer.getId(), time);
-//            return jsonSerializer.serialize("coach is not busy");
-//        }
-//    }
+    @RequestMapping(value = "/privateCreation", method = RequestMethod.POST)
+    public String createSchedule(@RequestParam String coachName,
+                                 @RequestParam String customerName,
+                                 @RequestParam String time){
+
+        String formativeTime = time.substring(0, 10);
+        Course course = courseService.getCourseByPrivateCoach(coachName);
+
+        Customer customer = customerService.getCustomerByName(customerName);
+
+        List<String> timeList = scheduleService.getTimeListOfCourse(course.getId());
+
+        if(timeList.contains(formativeTime)){
+            return jsonSerializer.serialize("coach is busy");
+        }else{
+            scheduleService.createSchedule(course.getId(), customer.getId(), formativeTime);
+            return jsonSerializer.serialize("coach is not busy");
+        }
+    }
 }
