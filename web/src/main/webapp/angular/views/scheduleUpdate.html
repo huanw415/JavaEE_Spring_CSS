@@ -1,0 +1,33 @@
+<div class="container" xmlns:date="http://www.w3.org/1999/xhtml">
+
+    <form name="update_schedule">
+      <div class="row">
+        <div class="col-md-offset-4 col-lg-4">
+          <h3>修改用户信息</h3>
+          <hr />
+          <div class="form-group">
+            <label for="courseName">课程名称：</label>
+            <input type="text" class="form-control" id="CourseName" name="courseName" value="{{schedule.course.name}}" disabled>
+          </div>
+
+          <div class="form-group">
+            <label for="coachName">教师：</label>
+            <input type="text" class="form-control" id="coachName" name="coachName" value="{{schedule.customer.name}}" disabled>
+          </div>
+
+          <div class="from-group">
+            <label for="time">时间：</label>
+            <input type="date" class="form-control" id="time" placeholder="yyyy-MM-dd" min="2015-01-01" max="2050-12-31"  value="{{schedule.time}}" ng-model="schedule.time" ng-required="string">
+            <!--<input type="date" class="form-control" id="time" name="time" value= "{{schedule}}" ng-model="schedule.time">-->
+          </div>
+          <h1>{{schedule.name}}</h1>
+
+          <div class="col-md-offset-5">
+            <button type="submit" class="btn btn-default" ng-click="updateSchedule(schedule.time)">提交</button>
+            <a type="button" class="btn btn-default" href="#/schedules">返回</a>
+            <button type="reset" class="btn btn-default">清空</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>

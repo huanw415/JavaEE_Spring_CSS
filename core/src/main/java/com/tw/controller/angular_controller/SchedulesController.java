@@ -2,6 +2,7 @@ package com.tw.controller.angular_controller;
 
 import com.tw.entity.Course;
 import com.tw.entity.Customer;
+import com.tw.entity.Schedule;
 import com.tw.service.CourseService;
 import com.tw.service.CustomerService;
 import com.tw.service.ScheduleService;
@@ -39,6 +40,21 @@ public class SchedulesController {
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public void deleteSchedule(@PathVariable int id){
         scheduleService.deleteScheduleById(id);
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public @ResponseBody
+    String getScheduleById(@PathVariable int id){
+
+        return jsonSerializer.include("course", "customer").serialize(scheduleService.getScheduleById(id));
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.POST)
+    public void getScheduleById(@PathVariable int id,
+                           @RequestParam String time){
+
+        Schedule schedule = new Schedule(id, time);
+        scheduleService.updateSchedule(schedule);
     }
 
     @RequestMapping(value = "/privateCreation", method = RequestMethod.POST)
