@@ -1,10 +1,10 @@
 'use strict';
 
 angular.module('users_management')
-    .controller('coursesController', function ($scope, $http, $route) {
+    .controller('coursesController', function ($scope, $http, $route, $filter) {
 
         $http.get('/web/api/courses').success(function (courses) {
-            $scope.courses = courses;
+            $scope.courses =  $filter('orderBy')(courses, 'name');
         });
 
         $scope.deleteCourseById = function (deleteId) {

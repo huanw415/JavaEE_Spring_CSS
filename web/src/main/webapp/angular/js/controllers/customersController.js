@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('users_management')
-    .controller('customersController', function ($scope, $http, $route) {
+    .controller('customersController', function ($scope, $http, $route, $filter) {
 
         $http.get('/web/api/customers').success(function (customers) {
 
@@ -17,7 +17,7 @@ angular.module('users_management')
                 }
             }
 
-            $scope.customerObjects = customers;
+            $scope.customerObjects = $filter('orderBy')(customers, 'name');;
         });
 
         $scope.deleteCustomerById = function (id) {
