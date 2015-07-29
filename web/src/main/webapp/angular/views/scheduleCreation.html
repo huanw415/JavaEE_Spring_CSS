@@ -14,14 +14,14 @@
 
                 <div class="from-group">
                     <label for="common_time">时间：</label>
-                    <input type="date" class="form-control" id="common_time" ng-model="commonTime">
+                    <input type="date" class="form-control" id="common_time" ng-model="commonTime" ng-style="commonTimeStyle">
                 </div>
             </div>
         </div>
         <div class="col-lg-12">&nbsp;</div>
         <div class="col-md-offset-5">
             <button type="submit" class="btn btn-default" ng-click="saveCommonCourse(course, commonTime)">提交</button>
-            <a type="button" class="btn btn-default" href="/web/schedules">返回</a>
+            <a type="button" class="btn btn-default" href="#/schedules">返回</a>
             <button type="reset" class="btn btn-default">清空</button>
         </div>
     </form>
@@ -52,7 +52,7 @@
                 <div class="col-lg-12">&nbsp;</div>
                 <div class="col-md-offset-5">
                     <button type="submit" class="btn btn-default" ng-click="savePrivateCourse(privateCoach.name, customer.name, privateTime)")>提交</button>
-                    <a type="button" class="btn btn-default" href="/web/schedules">返回</a>
+                    <a type="button" class="btn btn-default" href="#/schedules">返回</a>
                     <button type="reset" class="btn btn-default">清空</button>
                 </div>
             </div>

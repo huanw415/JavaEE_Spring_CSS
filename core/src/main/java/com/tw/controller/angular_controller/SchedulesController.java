@@ -42,7 +42,8 @@ public class SchedulesController {
     }
 
     @RequestMapping(value = "/privateCreation", method = RequestMethod.POST)
-    public String createSchedule(@RequestParam String coachName,
+    public @ResponseBody
+    String createPrivateSchedule(@RequestParam String coachName,
                                  @RequestParam String customerName,
                                  @RequestParam String time){
 
@@ -57,6 +58,23 @@ public class SchedulesController {
             return jsonSerializer.serialize("coach is busy");
         }else{
             scheduleService.createSchedule(course.getId(), customer.getId(), formativeTime);
+            return jsonSerializer.serialize("coach is not busy");
+        }
+    }
+
+    @RequestMapping(value = "/commonCreation", method = RequestMethod.POST)
+    public @ResponseBody
+    String createCommonSchedule(@RequestParam String courseName,
+                                @RequestParam String time){
+        String formativeTime = time.substring(0, 10);
+
+        Course course = courseService.getCourseByName(courseName);
+        List<String> timeList = scheduleService.getTimeListOfCourse(course.getId());
+
+        if(timeList.contains(formativeTime)){
+            return jsonSerializer.serialize("coach is busy");
+        }else{
+            scheduleService.createSchedule(course.getId(), 0, formativeTime);
             return jsonSerializer.serialize("coach is not busy");
         }
     }

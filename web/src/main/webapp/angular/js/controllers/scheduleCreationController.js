@@ -24,18 +24,14 @@ angular.module('users_management')
             $scope.customers = customers;
         });
 
-        $scope.savePrivateCourse = function (coachName, customerName, commonTime) {
+        $scope.savePrivateCourse = function (coachName, customerName, privateTime) {
 
-         //   (coach.name, customer.name, privateTime)
-         console.log(coachName + "============");
-         console.log(customerName + "============");
-         console.log(commonTime + "============");
             $http({
                 method: 'POST',
                 url: '/web/api/schedules/privateCreation',
                 params: {
                     coachName: coachName,
-                    time: commonTime,
+                    time: privateTime,
                     customerName: customerName
                 }
             }).success(function (result) {
@@ -43,6 +39,24 @@ angular.module('users_management')
                     $scope.privateTimeStyle = {'background-color':'pink'};
                 }else{
                     $location.path('/schedules');
+                }
+            });
+        };
+
+        $scope.saveCommonCourse = function (courseName, commonTime) {
+
+            $http({
+                method: 'POST',
+                url: '/web/api/schedules/commonCreation',
+                params:{
+                    courseName: courseName,
+                    time: commonTime
+                }
+            }).success(function (result) {
+                if(result == 'coach is busy'){
+                    $scope.commonTimeStyle = {'background-color':'pink'};
+                }else{
+                    //$location.path('/schedules');
                 }
             });
         }
