@@ -9,3 +9,4 @@ out/
 *.ipr
 *.iws
 .DS_Store
+npm-debug.log
