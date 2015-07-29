@@ -60,4 +60,17 @@ public class CourseService {
 //
 //        return commonCourses;
 //    }
+
+    public Course getCourseByPrivateCoach(String coachName){
+        List<Course> privateCourses = getPrivateCourse();
+
+        Course course = new Course();
+        for(int i=0; i<privateCourses.size(); i++){
+
+            if(privateCourses.get(i).getEmployee().getName().equals(coachName)){
+                course = privateCourses.get(i);
+            }
+        }
+        return course;
+    }
 }
