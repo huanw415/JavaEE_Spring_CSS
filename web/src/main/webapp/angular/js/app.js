@@ -54,5 +54,9 @@ angular.module('users_management', ['ngRoute'])
             .when('/schedules', {
                 templateUrl: 'views/schedules.html',
                 controller: 'schedulesController'
+            })
+            .when('/schedules/creation', {
+                templateUrl: 'views/scheduleCreation.html',
+                controller: 'scheduleCreationController'
             });
     });
