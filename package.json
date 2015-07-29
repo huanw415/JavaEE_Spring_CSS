@@ -1,0 +1,19 @@
+{
+  "name": "JavaEE_CSS",
+  "version": "1.0.0",
+  "description": "基于Java的技术栈学习 ==============",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adabeauty/JavaEE_Spring_CSS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adabeauty/JavaEE_Spring_CSS/issues"
+  },
+  "homepage": "https://github.com/adabeauty/JavaEE_Spring_CSS"
+}
