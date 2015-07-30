@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('users_management', ['ngRoute'])
-    .config(function($routeProvider){
+    .config(function($routeProvider, $locationProvider){
         $routeProvider
             .when('/users', {
                 templateUrl: 'views/users.html',
@@ -63,4 +63,6 @@ angular.module('users_management', ['ngRoute'])
                 templateUrl: 'views/scheduleUpdate.html',
                 controller: 'scheduleUpdateController'
             });
+
+        //$locationProvider.html5Mode(true);
     });
