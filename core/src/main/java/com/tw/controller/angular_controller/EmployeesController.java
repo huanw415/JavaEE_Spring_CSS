@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
  * Created by hgwang on 7/24/15.
  */
 @RestController
-@RequestMapping("/api/employees")
+@RequestMapping("/employees")
 public class EmployeesController {
 
     @Autowired

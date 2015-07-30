@@ -16,7 +16,7 @@ import java.util.List;
  * Created by hgwang on 7/28/15.
  */
 @RestController
-@RequestMapping(value = "/api/schedules")
+@RequestMapping(value = "/schedules")
 public class SchedulesController {
 
     @Autowired
