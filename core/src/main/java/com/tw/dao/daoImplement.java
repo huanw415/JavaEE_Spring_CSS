@@ -2,6 +2,8 @@ package com.tw.dao;
 
 
 import com.tw.Util.HibernateUtil;
+import com.tw.entity.Course;
+import com.tw.entity.Customer;
 import com.tw.entity.User;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -104,6 +106,35 @@ public class DaoImplement<T> implements Dao<T> {
         query.setInteger("id", user.getId());
 
         query.executeUpdate();
+
+        session.getTransaction().commit();
+    }
+
+    @Override
+    public void updateNameCustomer(Customer customer, String customerName) {
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+
+        session.beginTransaction();
+
+        String hql = "update Customer t set t.name=:name where id=:id";
+        Query query = session.createQuery(hql);
+        query.setInteger("id", customer.getId());
+        query.setString("name", customerName);
+        query.executeUpdate();
+
+        session.getTransaction().commit();
+    }
+
+    @Override
+    public void updateCourseOfCustomer(Course course, Customer customer) {
+
+        List<Course> courses = customer.getCourses();
+        courses.add(course);
+        customer.setCourses(courses);
+
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+        session.update(customer);
 
         session.getTransaction().commit();
     }
