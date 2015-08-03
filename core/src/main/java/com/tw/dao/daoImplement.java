@@ -31,7 +31,15 @@ public class DaoImplement<T> implements Dao<T> {
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 
         session.beginTransaction();
-        T data = (T) session.load(tClass, id);
+
+        String className = tClass.getName().substring(14);
+
+        String hql = "FROM " + className  + " where id=:id";
+        Query query = session.createQuery(hql);
+        query.setInteger("id", id);
+
+        T data = (T)query.list().get(0);
+
         session.getTransaction().commit();
 
         return data;
