@@ -4,6 +4,7 @@ package com.tw.dao;
 import com.tw.Util.HibernateUtil;
 import com.tw.entity.Course;
 import com.tw.entity.Customer;
+import com.tw.entity.Employee;
 import com.tw.entity.User;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -137,5 +138,22 @@ public class DaoImplement<T> implements Dao<T> {
         session.update(customer);
 
         session.getTransaction().commit();
+    }
+
+    @Override
+    public List<Employee> getAllCoaches(){
+
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+
+        session.beginTransaction();
+
+        String hql = "FROM Employee where Role=:role";
+        Query query = session.createQuery(hql);
+        query.setString("role", "coach");
+        List<Employee> employees = query.list();
+
+        session.getTransaction().commit();
+
+        return employees;
     }
 }

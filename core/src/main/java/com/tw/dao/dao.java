@@ -2,6 +2,7 @@ package com.tw.dao;
 
 import com.tw.entity.Course;
 import com.tw.entity.Customer;
+import com.tw.entity.Employee;
 import com.tw.entity.User;
 
 import java.util.List;
@@ -28,4 +29,6 @@ public interface Dao<T> {
     void updateNameCustomer(Customer customer, String customerName);
 
     void updateCourseOfCustomer(Course course, Customer customer);
+
+    List<Employee> getAllCoaches();
 }
