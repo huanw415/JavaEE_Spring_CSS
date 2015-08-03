@@ -39,7 +39,20 @@ public class DaoImplement<T> implements Dao<T> {
 
     @Override
     public T getDataByName(String name, Class<T> tClass) {
-        return null;
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+
+        session.beginTransaction();
+
+        String className = tClass.getName().substring(14);
+
+        String hql = "FROM " + className  + " where name=:name";
+        Query query = session.createQuery(hql);
+        query.setString("name", name);
+
+        T data = (T)query.list().get(0);
+
+        session.getTransaction().commit();
+        return data;
     }
 
     @Override
@@ -62,8 +75,12 @@ public class DaoImplement<T> implements Dao<T> {
     }
 
     @Override
-    public void updateData(T data, Class<T> tClass) {
+    public void updateData(T data) {
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 
+        session.beginTransaction();
+        session.update(data);
+        session.getTransaction().commit();
     }
 
     @Override

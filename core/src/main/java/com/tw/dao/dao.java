@@ -19,7 +19,7 @@ public interface Dao<T> {
 
     void deleteData(T data);
 
-    void updateData(T data, Class<T> tClass);
+    void updateData(T data);
 
     void updateUser(User user);
 }
