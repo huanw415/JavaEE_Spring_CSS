@@ -1,6 +1,6 @@
 package com.tw.service;
 
-import com.tw.dao.DaoImplement;
+import com.tw.dao.Dao;
 import com.tw.entity.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,23 +15,23 @@ import java.util.List;
 public class EmployeeService {
 
     @Autowired
-    private DaoImplement<Employee> employeeDaoImplement;
+    private Dao<Employee> employeeDao;
 
     public List<Employee> getAllEmployees(){
-        return employeeDaoImplement.getDataList(Employee.class);
+        return employeeDao.getDataList(Employee.class);
     }
     public Employee getEmployeeById(int id){
-        return employeeDaoImplement.getDataById(id, Employee.class);
+        return employeeDao.getDataById(id, Employee.class);
     }
 
     public void updateEmployee(Employee employee){
-        employeeDaoImplement.updateData(employee);
+        employeeDao.updateData(employee);
     }
     public void createEmployee(Employee employee){
-        employeeDaoImplement.createData(employee);
+        employeeDao.createData(employee);
     }
 
     public Employee getEmployeeByName(String coachName) {
-        return  employeeDaoImplement.getDataByName(coachName, Employee.class);
+        return  employeeDao.getDataByName(coachName, Employee.class);
     }
 }
