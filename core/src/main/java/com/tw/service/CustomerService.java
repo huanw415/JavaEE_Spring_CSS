@@ -1,6 +1,5 @@
 package com.tw.service;
 
-import com.tw.dao.CustomerDao;
 import com.tw.dao.Dao;
 import com.tw.entity.Course;
 import com.tw.entity.Customer;
@@ -15,8 +14,8 @@ import java.util.List;
 @Service
 public class CustomerService {
 
-    @Autowired
-    CustomerDao customerDao;
+//    @Autowired
+//    CustomerDao customerDao;
 
     @Autowired
     private Dao<Customer> customerDaos;

@@ -1,7 +1,6 @@
 package com.tw.service;
 
-import com.tw.dao.CourseDao;
-import com.tw.dao.ScheduleDao;
+import com.tw.dao.Dao;
 import com.tw.entity.Course;
 import com.tw.entity.Customer;
 import com.tw.entity.Employee;
@@ -19,29 +18,29 @@ import java.util.List;
 public class ScheduleService {
 
     @Autowired
-    private ScheduleDao scheduleDao;
+    private Dao<Schedule> scheduleDao;
 
     @Autowired
-    private CourseDao courseDao;
+    private Dao<Course> courseDao;
 
     @Autowired
     private CustomerService customerService;
 
     public List<Schedule> getAllSchedules(){
-        return scheduleDao.getAllSchedules();
+        return scheduleDao.getDataList(Schedule.class);
     }
 
     public Schedule getScheduleById(int id){
-        return scheduleDao.getScheduleById(id);
+        return scheduleDao.getDataById(id, Schedule.class);
     }
 
     public void updateSchedule(Schedule schedule){
-        scheduleDao.updateSchedule(schedule);
+        scheduleDao.updateData(schedule);
     }
 
     public List<String> getTimeListOfCourse(int courseId) {
 
-        Employee employee = courseDao.getCourseById(courseId).getEmployee();
+        Employee employee = courseDao.getDataById(courseId, Course.class).getEmployee();
         List<Course> courses = courseDao.getCourseByCoach(employee);
 
         List<String> timeList = new ArrayList<String>();
@@ -57,7 +56,7 @@ public class ScheduleService {
     }
 
     public void createSchedule(int courseId, int customerId, String time) {
-        Course course = courseDao.getCourseById(courseId);
+        Course course = courseDao.getDataById(courseId, Course.class);
 
         Schedule schedule;
         if(customerId == 0){
@@ -69,12 +68,12 @@ public class ScheduleService {
 
         }
 
-        scheduleDao.createSchedule(schedule);
+        scheduleDao.createData(schedule);
     }
 
     public void deleteScheduleById(int id) {
 
-        Schedule schedule = scheduleDao.getScheduleById(id);
+        Schedule schedule = scheduleDao.getDataById(id, Schedule.class);
         Course currentCourse = schedule.getCourse();
 
         if(currentCourse.getName().equals("private")){
@@ -90,6 +89,6 @@ public class ScheduleService {
 
             customerService.updateCustomer(customer);
         }
-        scheduleDao.deleteScheduleById(schedule);
+        scheduleDao.deleteData(schedule);
     }
 }

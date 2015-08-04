@@ -1,7 +1,6 @@
 package com.tw.service;
 
 import com.tw.dao.CourseDao;
-import com.tw.dao.ScheduleDao;
 import com.tw.entity.Course;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,8 +16,8 @@ public class CourseService {
     @Autowired
     private CourseDao courseDao;
 
-    @Autowired
-    private ScheduleDao scheduleDao;
+//    @Autowired
+//    private ScheduleDao scheduleDao;
 
     public List<Course> getAllCourses(){
         return courseDao.getAllCourses();
