@@ -5,22 +5,31 @@ import com.tw.Util.HibernateUtil;
 import com.tw.entity.*;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 /**
  * Created by hgwang on 8/3/15.
  */
 @Repository
+@EnableTransactionManagement
+@Transactional
 public class DaoImplement<T> implements Dao<T> {
+
+    @Autowired
+    private SessionFactory sessionFactory;
+
     @Override
     public List<T> getDataList(Class<T> tClass) {
-        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 
-        session.beginTransaction();
+        Session session = sessionFactory.getCurrentSession();
+
         List<T> dataList = session.createCriteria(tClass).list();
-        session.getTransaction().commit();
 
         return dataList;
     }
@@ -28,9 +37,8 @@ public class DaoImplement<T> implements Dao<T> {
     @Override
     public T getDataById(int id, Class<T> tClass) {
 
-        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        Session session = sessionFactory.getCurrentSession();
 
-        session.beginTransaction();
 
         String className = tClass.getName().substring(14);
 
@@ -40,16 +48,14 @@ public class DaoImplement<T> implements Dao<T> {
 
         T data = (T)query.list().get(0);
 
-        session.getTransaction().commit();
 
         return data;
     }
 
     @Override
     public T getDataByName(String name, Class<T> tClass) {
-        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 
-        session.beginTransaction();
+        Session session = sessionFactory.getCurrentSession();
 
         String className = tClass.getName().substring(14);
 
@@ -59,43 +65,33 @@ public class DaoImplement<T> implements Dao<T> {
 
         T data = (T)query.list().get(0);
 
-        session.getTransaction().commit();
         return data;
     }
 
     @Override
     public void createData(T data) {
 
-        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-
-        session.beginTransaction();
+        Session session = sessionFactory.getCurrentSession();
         session.save(data);
-        session.getTransaction().commit();
     }
 
     @Override
     public void deleteData(T data) {
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-
-        session.beginTransaction();
         session.delete(data);
-        session.getTransaction().commit();
     }
 
     @Override
     public void updateData(T data) {
-        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 
-        session.beginTransaction();
+        Session session = sessionFactory.getCurrentSession();
         session.update(data);
-        session.getTransaction().commit();
     }
 
     @Override
     public void updateUser(User user) {
-        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 
-        session.beginTransaction();
+        Session session = sessionFactory.getCurrentSession();
 
         String hql = "update User t set t.name=:name, password=:password where id=:id";
         Query query = session.createQuery(hql);
@@ -105,22 +101,18 @@ public class DaoImplement<T> implements Dao<T> {
 
         query.executeUpdate();
 
-        session.getTransaction().commit();
     }
 
     @Override
     public void updateNameCustomer(Customer customer, String customerName) {
-        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 
-        session.beginTransaction();
+        Session session = sessionFactory.getCurrentSession();
 
         String hql = "update Customer t set t.name=:name where id=:id";
         Query query = session.createQuery(hql);
         query.setInteger("id", customer.getId());
         query.setString("name", customerName);
         query.executeUpdate();
-
-        session.getTransaction().commit();
     }
 
     @Override
@@ -130,40 +122,31 @@ public class DaoImplement<T> implements Dao<T> {
         courses.add(course);
         customer.setCourses(courses);
 
-        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-        session.beginTransaction();
-        session.update(customer);
+        Session session = sessionFactory.getCurrentSession();
 
-        session.getTransaction().commit();
+        session.update(customer);
     }
 
     @Override
     public List<Employee> getAllCoaches(){
 
-        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-
-        session.beginTransaction();
+        Session session = sessionFactory.getCurrentSession();
 
         String hql = "FROM Employee where Role=:role";
         Query query = session.createQuery(hql);
         query.setString("role", "coach");
         List<Employee> employees = query.list();
 
-        session.getTransaction().commit();
-
         return employees;
     }
 
     @Override
     public List<Course> getCourseByCoach(Employee employee) {
-        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        Session session = sessionFactory.getCurrentSession();
 
-        session.beginTransaction();
         Query query= session.createQuery("FROM Course where employee=:employee");
         query.setParameter("employee", employee);
         List<Course> courses = query.list();
-
-        session.getTransaction().commit();
 
         return courses;
     }
@@ -171,15 +154,12 @@ public class DaoImplement<T> implements Dao<T> {
     @Override
     public List<Schedule> getTimeListOfCourse(Course course) {
 
-        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-
-        session.beginTransaction();
+        Session session = sessionFactory.getCurrentSession();
 
         Query query = session.createQuery("from Schedule where course=:course");
         query.setParameter("course", course);
 
         List<Schedule> schedules = query.list();
-        session.getTransaction().commit();
 
         return schedules;
     }
