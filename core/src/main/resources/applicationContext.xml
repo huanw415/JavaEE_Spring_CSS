@@ -34,6 +34,7 @@ http://www.springframework.org/schema/context/spring-context-3.2.xsd http://www.
             <props>
                 <prop key="hibernate.dialect">${jdbc.dialect}</prop>
                 <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.enable_lazy_load_no_trans">true</prop>
             </props>
         </property>
 
