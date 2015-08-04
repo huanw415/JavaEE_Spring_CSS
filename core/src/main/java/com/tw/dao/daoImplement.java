@@ -2,10 +2,7 @@ package com.tw.dao;
 
 
 import com.tw.Util.HibernateUtil;
-import com.tw.entity.Course;
-import com.tw.entity.Customer;
-import com.tw.entity.Employee;
-import com.tw.entity.User;
+import com.tw.entity.*;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
@@ -155,5 +152,35 @@ public class DaoImplement<T> implements Dao<T> {
         session.getTransaction().commit();
 
         return employees;
+    }
+
+    @Override
+    public List<Course> getCourseByCoach(Employee employee) {
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+
+        session.beginTransaction();
+        Query query= session.createQuery("FROM Course where employee=:employee");
+        query.setParameter("employee", employee);
+        List<Course> courses = query.list();
+
+        session.getTransaction().commit();
+
+        return courses;
+    }
+
+    @Override
+    public List<Schedule> getTimeListOfCourse(Course course) {
+
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+
+        session.beginTransaction();
+
+        Query query = session.createQuery("from Schedule where course=:course");
+        query.setParameter("course", course);
+
+        List<Schedule> schedules = query.list();
+        session.getTransaction().commit();
+
+        return schedules;
     }
 }

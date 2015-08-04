@@ -1,9 +1,6 @@
 package com.tw.dao;
 
-import com.tw.entity.Course;
-import com.tw.entity.Customer;
-import com.tw.entity.Employee;
-import com.tw.entity.User;
+import com.tw.entity.*;
 
 import java.util.List;
 
@@ -31,4 +28,8 @@ public interface Dao<T> {
     void updateCourseOfCustomer(Course course, Customer customer);
 
     List<Employee> getAllCoaches();
+
+    List<Course> getCourseByCoach(Employee employee);
+
+    List<Schedule> getTimeListOfCourse(Course course);
 }
