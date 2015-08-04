@@ -163,4 +163,20 @@ public class DaoImplement<T> implements Dao<T> {
 
         return schedules;
     }
+
+    @Override
+    public List<Course> getPrivateCourse() {
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+
+        session.beginTransaction();
+
+        String hql = "FROM Course where name=:name";
+        Query query = session.createQuery(hql);
+        query.setString("name", "private");
+
+        List<Course> courses = (List<Course>) query.list();
+
+        session.getTransaction().commit();
+        return courses;
+    }
 }

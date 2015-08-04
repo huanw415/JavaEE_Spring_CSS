@@ -1,6 +1,6 @@
 package com.tw.service;
 
-import com.tw.dao.CourseDao;
+import com.tw.dao.Dao;
 import com.tw.entity.Course;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,51 +14,36 @@ import java.util.List;
 public class CourseService {
 
     @Autowired
-    private CourseDao courseDao;
-
-//    @Autowired
-//    private ScheduleDao scheduleDao;
+    private Dao<Course> courseDao;
 
     public List<Course> getAllCourses(){
-        return courseDao.getAllCourses();
+        return courseDao.getDataList(Course.class);
     }
 
     public Course getCourseById(int id){
-        return courseDao.getCourseById(id);
+        return courseDao.getDataById(id, Course.class);
     }
 
     public void updateCourse(Course course){
-        courseDao.updateCourse(course);
+        courseDao.updateData(course);
     }
     public void createCourse(Course course){
-        courseDao.createCourse(course);
+        courseDao.createData(course);
     }
 
     public void deleteCourse(int id) {
-        Course course = courseDao.getCourseById(id);
-        courseDao.deleteCourse(course);
+
+        Course course = courseDao.getDataById(id, Course.class);
+        courseDao.deleteData(course);
     }
 
     public Course getCourseByName(String name){
-        return courseDao.getCourseByName(name);
+        return courseDao.getDataByName(name, Course.class);
     }
 
     public List<Course> getPrivateCourse() {
         return courseDao.getPrivateCourse();
     }
-//
-//    public List<Course> getCommonCourse(){
-//        List<Course> courses = getAllCourses();
-//
-//        List<Course> commonCourses = new ArrayList<Course>();
-//        for(int i=0; i<courses.size(); i++){
-//            if(courses.get(i).getName() != "private"){
-//                commonCourses.add(courses.get(i));
-//            }
-//        }
-//
-//        return commonCourses;
-//    }
 
     public Course getCourseByPrivateCoach(String coachName){
         List<Course> privateCourses = getPrivateCourse();

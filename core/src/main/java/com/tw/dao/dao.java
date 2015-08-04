@@ -32,4 +32,6 @@ public interface Dao<T> {
     List<Course> getCourseByCoach(Employee employee);
 
     List<Schedule> getTimeListOfCourse(Course course);
+
+    List<Course> getPrivateCourse();
 }
