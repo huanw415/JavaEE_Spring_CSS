@@ -17,7 +17,7 @@ public class CoachService {
 //    private CoachDao coachDao;
 
     @Autowired
-    Dao<Employee> coachDao;
+    private Dao<Employee> coachDao;
 
     public List<Employee> getAllCoaches(){
     return coachDao.getAllCoaches();
