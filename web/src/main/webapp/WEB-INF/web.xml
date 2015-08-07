@@ -31,16 +31,18 @@
         <!--<welcome-file>/angular/index.html</welcome-file>-->
     <!--</welcome-file-list>-->
 
-    <context-param>
-        <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:applicationContext.xml</param-value>
-    </context-param>
 
-    <listener>
-        <listener-class>
-            org.springframework.web.context.ContextLoaderListener
-        </listener-class>
-    </listener>
+
+    <!--<listener>-->
+        <!--<listener-class>-->
+            <!--org.springframework.web.context.ContextLoaderListener-->
+        <!--</listener-class>-->
+    <!--</listener>-->
+
+    <context-param>
+        <param-name>spring.profiles.active</param-name>
+        <param-value>dev</param-value>
+    </context-param>
 
     <servlet>
         <servlet-name>spring-web</servlet-name>
@@ -52,6 +54,11 @@
             <param-value>/WEB-INF/spring-web-servlet.xml</param-value>
         </init-param>
     </servlet>
+
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:applicationContext.xml</param-value>
+    </context-param>
     <!--<servlet-mapping>-->
         <!--<servlet-name>default</servlet-name>-->
         <!--<url-pattern>.css</url-pattern>-->
