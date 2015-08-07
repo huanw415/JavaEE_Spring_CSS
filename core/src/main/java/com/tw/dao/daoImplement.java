@@ -39,17 +39,18 @@ public class DaoImplement<T> implements Dao<T> {
 
         Session session = sessionFactory.getCurrentSession();
 
-
         String className = tClass.getName().substring(14);
 
-        String hql = "FROM " + className  + " where id=:id";
+        String hql = "FROM " + className;
         Query query = session.createQuery(hql);
-        query.setInteger("id", id);
+//        query.setInteger("id", id);
 
-        T data = (T)query.list().get(0);
-
-
-        return data;
+        List<T> data = query.list();
+//        System.out.println("=====================");
+//        System.out.println(data.get(0));
+//        System.out.println("=====================");
+T dd = data.get(0);
+        return dd;
     }
 
     @Override
@@ -77,7 +78,8 @@ public class DaoImplement<T> implements Dao<T> {
 
     @Override
     public void deleteData(T data) {
-        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+//        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        Session session = sessionFactory.getCurrentSession();
         session.delete(data);
     }
 
