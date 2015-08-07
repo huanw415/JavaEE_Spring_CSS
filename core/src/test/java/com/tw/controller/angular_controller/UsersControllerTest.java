@@ -4,6 +4,7 @@ import com.tw.entity.Employee;
 import com.tw.entity.User;
 import com.tw.service.UserService;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -28,7 +29,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  */
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"file:web/src/main/webapp/WEB-INF/spring-web-servlet.xml"})
+@ContextConfiguration(locations = {"classpath*:applicationContext.xml"})
 @WebAppConfiguration
 public class UsersControllerTest {
 
@@ -39,6 +40,12 @@ public class UsersControllerTest {
 
     @InjectMocks
     private UsersController usersController;
+
+    @BeforeClass
+    public static void setSystemProperty() {
+
+        System.setProperty("spring.profiles.active", "test");
+    }
 
     @Before
     public void build_usersController(){
